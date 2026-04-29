@@ -1,0 +1,1194 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michael Kessler — Special Effects Artist | Music Composer</title>
+  <meta name="description" content="Michael Kessler — Special Effects Artist and Music Composer based in Christiansburg, VA. Props, armor, masks, sculptures and original music for games and the dancefloor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Karla:wght@300;400;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Teko:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #111009;
+      --bg-raised: #1a1810;
+      --bg-card:   #201e14;
+      --copper:    #B87333;
+      --copper-dim:#7a4d22;
+      --copper-lt: #d4956a;
+      --white:     #ede8df;
+      --white-dim: #a09890;
+      --white-faint:#ffffff12;
+      --border:    #ffffff0f;
+      --border-md: #ffffff1a;
+      --display:   'Playfair Display', Georgia, serif;
+      --body:      'Karla', sans-serif;
+      --mono:      'Courier Prime', 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--body);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--copper); color: var(--bg); }
+
+    /* ─── TEXTURE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.6;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 3.5rem;
+      background: rgba(17,16,9,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Teko', sans-serif;
+      text-transform: uppercase;
+      font-size: 1.50rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-logo span { color: var(--copper); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--copper); }
+
+    .nav-hire {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.4rem;
+      border: 1px solid var(--copper-dim);
+      color: var(--copper);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-hire:hover {
+      background: var(--copper);
+      color: var(--bg);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 3.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Teko', sans-serif;
+      font-size: clamp(8rem, 20vw, 18rem);
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1px #ffffff05;
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-rule {
+      width: 56px;
+      height: 1px;
+      background: var(--copper);
+      margin-bottom: 2rem;
+      animation: grow-in 1s ease forwards;
+    }
+
+    @keyframes grow-in {
+      from { width: 0; opacity: 0; }
+      to   { width: 56px; opacity: 1; }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fade-up 0.8s 0.2s ease forwards;
+    }
+
+    .hero-name {
+      font-family: 'Teko', sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fade-up 0.8s 0.35s ease forwards;
+    }
+
+    .hero-tagline {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      color: var(--white-dim);
+      max-width: 600px;
+      line-height: 1.5;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fade-up 0.8s 0.5s ease forwards;
+    }
+
+    .hero-tagline em { color: var(--copper-lt); font-style: normal; }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fade-up 0.8s 0.65s ease forwards;
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary { background: var(--copper); color: var(--bg); }
+    .btn-primary:hover { background: var(--copper-lt); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid var(--border-md); }
+    .btn-outline:hover { border-color: var(--copper); color: var(--copper); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      opacity: 0;
+      animation: fade-up 1s 1s ease forwards;
+    }
+
+    .hero-scroll span {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-bar {
+      width: 1px;
+      height: 60px;
+      background: var(--border-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-bar::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--copper);
+      animation: drip 2s ease-in-out infinite;
+    }
+
+    @keyframes drip {
+      0%   { top: -100%; }
+      50%  { top: 0; }
+      100% { top: 100%; }
+    }
+
+    /* ─── SECTION SHARED ─── */
+    section { position: relative; }
+
+    .section-inner {
+      padding: 7rem 3.5rem;
+    }
+
+    .label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .label::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--copper-dim);
+      flex-shrink: 0;
+    }
+
+    .section-heading {
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    /* ─── ABOUT ─── */
+    .about {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-raised);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .about-photo {
+      aspect-ratio: 3/4;
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-photo::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--copper);
+    }
+
+    .photo-placeholder {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--white-dim);
+      text-transform: uppercase;
+      opacity: 0.4;
+    }
+
+    .photo-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--white-dim);
+      fill: none;
+      stroke-width: 1;
+      opacity: 0.3;
+    }
+
+    .about-content { padding-top: 0.5rem; }
+
+    .about-body {
+      color: var(--white-dim);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .about-body strong { color: var(--white); font-weight: 600; }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 3rem;
+    }
+
+    .stat {
+      background: var(--bg-raised);
+      padding: 1.5rem 1.25rem;
+    }
+
+    .stat-num {
+      font-family: var(--display);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--copper);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+    }
+
+    /* ─── PROPS ─── */
+    .props { border-bottom: 1px solid var(--border); }
+
+    .props-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border-md);
+      background: transparent;
+      color: var(--white-dim);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter:hover, .filter.active {
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+
+    .props-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .prop-item {
+      aspect-ratio: 4/3;
+      background: var(--bg-card);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .prop-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .prop-item:hover img { transform: scale(1.05); }
+
+    .prop-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .prop-placeholder svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--border-md);
+      fill: none;
+      stroke-width: 1;
+    }
+
+    .prop-placeholder span {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      color: var(--border-md);
+      text-transform: uppercase;
+    }
+
+    .prop-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17,16,9,0.96) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+
+    .prop-item:hover .prop-overlay { opacity: 1; }
+
+    .prop-title {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .prop-cat {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--copper);
+    }
+
+    /* ─── MUSIC ─── */
+    .music {
+      background: var(--bg-raised);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .music-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+
+    .tracks {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: 2rem 1fr auto;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.1rem 1.25rem;
+      background: var(--bg-raised);
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .track::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--copper);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.25s ease;
+    }
+
+    .track:hover { background: var(--bg-card); }
+    .track:hover::before { transform: scaleY(1); }
+
+    .track-n {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--white-dim);
+      opacity: 0.5;
+      text-align: right;
+    }
+
+    .track-info { min-width: 0; }
+
+    .track-title {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.15rem;
+    }
+
+    .track-meta {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      opacity: 0.6;
+    }
+
+    .track-tag {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--border-md);
+      color: var(--white-dim);
+      flex-shrink: 0;
+    }
+
+    .music-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .music-links p {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--white-dim);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .music-links p em { color: var(--copper-lt); font-style: normal; }
+
+    .platform-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      text-decoration: none;
+      color: var(--white);
+      transition: all 0.2s;
+    }
+
+    .platform-link:hover {
+      border-color: var(--copper-dim);
+      background: var(--bg-raised);
+    }
+
+    .platform-link-name {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .platform-link-arrow {
+      margin-left: auto;
+      color: var(--copper);
+      font-size: 1rem;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact { border-bottom: 1px solid var(--border); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 7rem;
+      align-items: start;
+    }
+
+    .contact-left p {
+      font-size: 1rem;
+      color: var(--white-dim);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-item-value {
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+
+    .contact-item-value a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-md);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .contact-item-value a:hover { border-color: var(--copper); }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-group label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      color: var(--white);
+      padding: 0.8rem 1rem;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      appearance: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--white-dim); opacity: 0.35; }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--copper); }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select option { background: var(--bg-card); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 2rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--white-dim);
+      opacity: 0.5;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 1; color: var(--copper); }
+
+    /* ─── DIVIDER TAPE ─── */
+    .tape {
+      overflow: hidden;
+      background: var(--copper);
+      padding: 0.6rem 0;
+    }
+
+    .tape-inner {
+      display: flex;
+      white-space: nowrap;
+      animation: tape-scroll 20s linear infinite;
+    }
+
+    .tape-item {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--default);
+      padding-right: 3rem;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    @keyframes tape-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .section-inner { padding: 5rem 1.5rem; }
+      .hero { padding: 0 1.5rem 4rem; }
+      .hero-scroll { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-photo { aspect-ratio: 4/3; }
+      .music-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .props-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 560px) {
+      .props-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Michael <span>Kessler</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#props">Props</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-hire">Hire Me</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text">KESSLER</div>
+    <div class="hero-rule"></div>
+    <p class="hero-eyebrow">michaelkessler.studio</p>
+    <h1 class="hero-name">Michael Kessler</h1>
+    <p class="hero-tagline">
+      <em>Special Effects Artist | Music Composer</em><br />
+      Practical Effects. Original Music.
+    </p>
+    <div class="hero-cta">
+      <a href="#props" class="btn btn-primary">View Props</a>
+      <a href="#music" class="btn btn-outline">Hear the Music</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-bar"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- TAPE -->
+  <div class="tape" aria-hidden="true">
+    <div class="tape-inner">
+      <span class="tape-item">Props</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Armor</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Helmets</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Masks</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Sculpture</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Signs</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Game OST</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Dance Music</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Props</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Armor</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Helmets</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Masks</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Sculpture</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Signs</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Game OST</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">House Music</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Disco Music</span>
+      <span class="tape-item">·</span>
+      <span class="tape-item">Synthwave Music</span>
+      <span class="tape-item">·</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-photo">
+          <!-- Replace contents with: <img src="images/michael.jpg" alt="Michael Kessler" style="width:100%;height:100%;object-fit:cover;display:block;" /> -->
+          <div class="photo-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="10" r="3"/><path d="M6 21v-1a6 6 0 0 1 12 0v1"/></svg>
+          </div>
+          <span class="photo-placeholder">your_photo.jpg</span>
+        </div>
+        <div class="about-content">
+          <p class="label">About</p>
+          <h2 class="section-heading">Built by hand.<br />Scored by ear.</h2>
+          <p class="about-body">
+            I'm Michael — a <strong>special effects artist and music composer</strong> based in Christiansburg, VA.  I love making things: Props for film and TV, and music that brings games to life and fills dancefloors."
+          </p>
+          <p class="about-body">
+            On the props side I specialize in crafting sculptures, electronic signs, helmets, armor, and masks. My fabrication skills span mold making and casting in silicone, urethane, and plaster, foam fabrication with EVA and upholstery foam, fiberglass work, resin casting, welding, metalwork, and woodworking. I sculpt in clay, foam clay, and epoxy, and finish everything with painting, airbrushing, weathering, and aging techniques. I also integrate LED lighting and basic electronics into builds, and can handle mechanical and animatronic rigging where a piece calls for it. On the digital side I work with 3D printing and design, and I'm comfortable reading technical drawings and blueprints. I can make and repair patterns, and take on prop repair and restoration work as well.
+          </p>
+          <p class="about-body">
+            On the music side I compose and produce original work across two distinct worlds. For games, I have scored puzzle titles with releases coming later this year, building soundscapes that support atmosphere and player focus without getting in the way of the experience. For the dancefloor, I produce house, disco, UK garage, and synthwave, four genres that share a common thread of groove, energy, and forward movement. All of my music is produced in Propellerhead Reason, giving me deep control over every element of a track from sound design through to final mix.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPS -->
+  <section class="props" id="props">
+    <div class="section-inner">
+      <div class="props-header">
+        <div>
+          <p class="label">Special Effects</p>
+          <h2 class="section-heading">Props &amp; Fabrication</h2>
+        </div>
+        <div class="filter-row">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="helmet">Helmets</button>
+          <button class="filter" data-filter="armor">Armor</button>
+          <button class="filter" data-filter="mask">Masks</button>
+          <button class="filter" data-filter="sign">Signs</button>
+          <button class="filter" data-filter="sculpture">Sculpture</button>
+        </div>
+      </div>
+      <div class="props-grid">
+        <!-- To add a real image, replace the .prop-placeholder div with:
+             <img src="images/prop-name.jpg" alt="Description" style="width:100%;height:100%;object-fit:cover;display:block;" />
+             Then update data-title and data-cat on the parent .prop-item -->
+        <div class="prop-item" data-cat="helmet" data-title="Project Title">
+          <div class="prop-placeholder">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18"/></svg>
+            <span>prop_01.jpg</span>
+          </div>
+          <div class="prop-overlay">
+            <p class="prop-title">Project Title</p>
+            <p class="prop-cat">Helmet</p>
+          </div>
+        </div>
+        <div class="prop-item" data-cat="armor" data-title="Project Title">
+          <div class="prop-placeholder">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18"/></svg>
+            <span>prop_02.jpg</span>
+          </div>
+          <div class="prop-overlay">
+            <p class="prop-title">Project Title</p>
+            <p class="prop-cat">Armor</p>
+          </div>
+        </div>
+        <div class="prop-item" data-cat="mask" data-title="Project Title">
+          <div class="prop-placeholder">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18"/></svg>
+            <span>prop_03.jpg</span>
+          </div>
+          <div class="prop-overlay">
+            <p class="prop-title">Project Title</p>
+            <p class="prop-cat">Mask</p>
+          </div>
+        </div>
+        <div class="prop-item" data-cat="sign" data-title="Project Title">
+          <div class="prop-placeholder">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18"/></svg>
+            <span>prop_04.jpg</span>
+          </div>
+          <div class="prop-overlay">
+            <p class="prop-title">Project Title</p>
+            <p class="prop-cat">Sign</p>
+          </div>
+        </div>
+        <div class="prop-item" data-cat="sculpture" data-title="Project Title">
+          <div class="prop-placeholder">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18"/></svg>
+            <span>prop_05.jpg</span>
+          </div>
+          <div class="prop-overlay">
+            <p class="prop-title">Project Title</p>
+            <p class="prop-cat">Sculpture</p>
+          </div>
+        </div>
+        <div class="prop-item" data-cat="helmet" data-title="Project Title">
+          <div class="prop-placeholder">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18"/></svg>
+            <span>prop_06.jpg</span>
+          </div>
+          <div class="prop-overlay">
+            <p class="prop-title">Project Title</p>
+            <p class="prop-cat">Helmet</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="music" id="music">
+    <div class="section-inner">
+      <p class="label">Composition</p>
+      <h2 class="section-heading">Music &amp; Sound</h2>
+      <div class="music-grid">
+        <div class="tracks">
+          <!-- Update title, meta, tag, and data-src for each track -->
+          <div class="track" data-src="">
+            <span class="track-n">01</span>
+            <div class="track-info">
+              <p class="track-title">Track Title</p>
+              <p class="track-meta">Game Soundtrack · 2024</p>
+            </div>
+            <span class="track-tag">Game OST</span>
+          </div>
+          <div class="track" data-src="">
+            <span class="track-n">02</span>
+            <div class="track-info">
+              <p class="track-title">Track Title</p>
+              <p class="track-meta">Dance · 2024</p>
+            </div>
+            <span class="track-tag">Dance</span>
+          </div>
+          <div class="track" data-src="">
+            <span class="track-n">03</span>
+            <div class="track-info">
+              <p class="track-title">Track Title</p>
+              <p class="track-meta">Game Soundtrack · 2023</p>
+            </div>
+            <span class="track-tag">Game OST</span>
+          </div>
+          <div class="track" data-src="">
+            <span class="track-n">04</span>
+            <div class="track-info">
+              <p class="track-title">Track Title</p>
+              <p class="track-meta">Dance · 2023</p>
+            </div>
+            <span class="track-tag">Dance</span>
+          </div>
+          <div class="track" data-src="">
+            <span class="track-n">05</span>
+            <div class="track-info">
+              <p class="track-title">Track Title</p>
+              <p class="track-meta">Game Soundtrack · 2022</p>
+            </div>
+            <span class="track-tag">Game OST</span>
+          </div>
+        </div>
+        <div class="music-links">
+          <p>Original music for <em>games, film,</em> and the <em>dancefloor</em> — hear the full catalogue on your platform of choice.</p>
+          <!-- Update href values to your actual profile URLs -->
+          <a href="#" class="platform-link">
+            <span class="platform-link-name">SoundCloud</span>
+            <span class="platform-link-arrow">→</span>
+          </a>
+          <a href="#" class="platform-link">
+            <span class="platform-link-name">Bandcamp</span>
+            <span class="platform-link-arrow">→</span>
+          </a>
+          <a href="#" class="platform-link">
+            <span class="platform-link-name">Spotify</span>
+            <span class="platform-link-arrow">→</span>
+          </a>
+          <a href="#" class="platform-link">
+            <span class="platform-link-name">YouTube</span>
+            <span class="platform-link-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <p class="label">Get In Touch</p>
+          <h2 class="section-heading">Let's make<br />something.</h2>
+          <p>Available for prop commissions, film &amp; TV fabrication, game soundtrack work, and live event scoring. I respond within 48 hours.</p>
+          <div class="contact-details">
+            <div>
+              <p class="contact-item-label">Email</p>
+              <!-- Update to your actual email -->
+              <p class="contact-item-value"><a href="mailto:hello@michaelkessler.studio">hello@michaelkessler.studio</a></p>
+            </div>
+            <div>
+              <p class="contact-item-label">Based in</p>
+              <p class="contact-item-value">Christiansburg, VA — available on location &amp; remote</p>
+            </div>
+            <div>
+              <p class="contact-item-label">Social</p>
+              <!-- Update href to your Instagram -->
+              <p class="contact-item-value"><a href="#">Instagram</a></p>
+            </div>
+          </div>
+        </div>
+        <!-- Update action to your Formspree URL: https://formspree.io/f/YOUR_ID -->
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="type">Project type</label>
+            <select id="type" name="project-type">
+              <option value="">Select one</option>
+              <option>Prop / SFX commission</option>
+              <option>Film or TV fabrication</option>
+              <option>Game soundtrack</option>
+              <option>Dance / electronic music</option>
+              <option>Both props &amp; music</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell me about the project</label>
+            <textarea id="message" name="message" placeholder="What are you making? Timeline? Budget?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-copy">© 2026 Michael Kessler — michaelkessler.studio</p>
+    <ul class="footer-links">
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">SoundCloud</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const filters = document.querySelectorAll('.filter');
+    const items   = document.querySelectorAll('.prop-item');
+
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        items.forEach(item => {
+          item.style.display = (f === 'all' || item.dataset.cat === f) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
