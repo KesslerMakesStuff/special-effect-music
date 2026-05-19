@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Master Chief Helmet Replica (Halo Infinite) — Michael Kessler</title>
+  <meta name="description" content="Master Chief Helmet Replica (Halo Infinite)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Karla:wght@300;400;600&family=Courier+Prime:wght@400;700&family=Teko:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #111009;
+      --bg-raised: #1a1810;
+      --bg-card:   #201e14;
+      --copper:    #B87333;
+      --copper-dim:#7a4d22;
+      --copper-lt: #d4956a;
+      --white:     #ede8df;
+      --white-dim: #a09890;
+      --border:    #ffffff0f;
+      --border-md: #ffffff1a;
+      --display:   'Playfair Display', Georgia, serif;
+      --body:      'Karla', sans-serif;
+      --mono:      'Courier Prime', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--body);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    
+    a:link {
+      color: green;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: rgb(253, 135, 155);
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: red;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    a:active {
+      color: yellow;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    ::selection { background: var(--copper); color: var(--bg); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 3.5rem;
+      background: rgba(17,16,9,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Teko', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span { color: var(--copper); }
+
+    .nav-back {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--copper); }
+
+    .nav-hire {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.4rem;
+      border: 1px solid var(--copper-dim);
+      color: var(--copper);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-hire:hover { background: var(--copper); color: var(--bg); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 10rem 3.5rem 4rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header-bg {
+      position: absolute;
+      top: 50%;
+      right: -2rem;
+      transform: translateY(-50%);
+      font-family: 'Teko', sans-serif;
+      font-size: clamp(6rem, 15vw, 13rem);
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1px #ffffff05;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .breadcrumb {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .breadcrumb a {
+      color: var(--copper);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .breadcrumb a:hover { opacity: 0.7; }
+
+    .breadcrumb-sep { opacity: 0.3; }
+
+    .page-title {
+      font-family: 'Teko', sans-serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .page-meta {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+
+    .meta-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--copper);
+    }
+
+    .meta-value {
+      font-size: 0.9rem;
+      color: var(--white-dim);
+    }
+
+    /* ── PROCESS SECTION ── */
+    .process {
+      padding: 5rem 3.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-raised);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .process-image {
+      position: relative;
+      aspect-ratio: 4/4;
+      background: var(--bg-card);
+      border: 1px solid var(--border-md);
+      overflow: hidden;
+    }
+
+    .process-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--copper);
+    }
+
+    .process-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .process-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .process-image-placeholder svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--border-md);
+      fill: none;
+      stroke-width: 1;
+    }
+
+    .process-image-placeholder span {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--border-md);
+      text-transform: uppercase;
+    }
+
+    .image-caption {
+      margin-top: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      opacity: 0.5;
+    }
+
+    .process-content { padding-top: 0.5rem; }
+
+    .label {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .label::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--copper-dim);
+      flex-shrink: 0;
+    }
+
+    .process-heading {
+      font-family: var(--display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .process-body {
+      font-size: 1rem;
+      color: var(--white-dim);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    .process-body strong { color: var(--white); font-weight: 600; }
+
+    /* ── TECHNIQUES ── */
+    .techniques {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .techniques-label {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1rem;
+    }
+
+    .techniques-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .technique-tag {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border-md);
+      color: var(--white-dim);
+      transition: all 0.2s;
+    }
+
+    .technique-tag:hover {
+      border-color: var(--copper-dim);
+      color: var(--copper-lt);
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      padding: 5rem 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-heading {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .gallery-item {
+      aspect-ratio: 4/4;
+      background: var(--bg-card);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .gallery-placeholder svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--border-md);
+      fill: none;
+      stroke-width: 1;
+    }
+
+    .gallery-placeholder span {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--border-md);
+      text-transform: uppercase;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,8,0.96);
+      z-index: 900;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      background: none;
+      border: 1px solid var(--border-md);
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lightbox-close:hover { color: var(--white); border-color: var(--white); }
+
+    /* ── NAV FOOTER ── */
+    .project-nav {
+      padding: 3rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .project-nav-link {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: color 0.2s;
+    }
+
+    .project-nav-link:hover { color: var(--copper); }
+
+    .project-nav-center {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      opacity: 0.4;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .project-nav-center:hover { opacity: 1; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      color: var(--white-dim);
+      opacity: 0.5;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      text-decoration: none;
+      opacity: 0.5;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 1; color: var(--copper); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .page-header { padding: 8rem 1.5rem 3rem; }
+      .process { padding: 4rem 1.5rem; }
+      .process-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .gallery { padding: 4rem 1.5rem; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .project-nav { padding: 2rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 560px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .page-meta { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">Michael <span>Kessler</span></a>
+    <a href="../index.html#props" class="nav-back">← Back to Props</a>
+    <a href="../index.html#contact" class="nav-hire">Hire Me</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-bg">PROJECT</div>
+    <p class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="../index.html#props">Props</a>
+      <span class="breadcrumb-sep">/</span>
+      Project Title
+    </p>
+    <!-- UPDATE: Change the title, category, client, and year -->
+    <h1 class="page-title">Master Chief Helmet Replica <br> (Halo Infinite)</h1>
+    <div class="page-meta">
+      <div class="meta-item">
+        <span class="meta-label">Category</span>
+        <span class="meta-value">Helmet</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Year</span>
+        <span class="meta-value">2024</span>
+      </div>
+      <!-- OPTIONAL: Remove this meta-item block if client is private -->
+      <div class="meta-item">
+        <span class="meta-label">Client</span>
+        <span class="meta-value">Private Project</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="process-grid">
+      <div>
+        <!-- UPDATE: Replace placeholder with your process photo -->
+        <!-- <img src="../images/project-name-process.jpg" alt="Working on project title" style="width:100%;height:100%;object-fit:cover;display:block;" /> -->
+        <div class="process-image">
+          <img src="../images/helmet/me-with-helmet-on.jpg" alt="Me with helmet on" />
+        </div>
+        <p class="image-caption">Helmet Test Fit</p>
+      </div>
+      <div class="process-content">
+        <p class="label">Behind the Build</p>
+        <!-- UPDATE: Change the heading and description -->
+        <h2 class="process-heading">How this piece came together</h2>
+        <p class="process-body">
+          I have had a deep love for the Halo franchise since the very first Halo game release. I've always wanted Master Chiefs helmet for my prop collection, so I decided it was time to take on this project. 
+        </p>
+        <p class="process-body">
+          I bought the 3D model from <a href="https://galacticarmory.net/products/infinite-master-chief-helmet-3d-print-files">Galactic Armory</a> and printed the helmet in parts out of PLA+. I then epoxied those parts together and used a mix of sanding, filling primer, and body filler to get the helmet as smooth as possible.
+        </p>
+        <p class="process-body">
+          From there I mixed and tested green paint until I got as close to the original Master Chief helmet color as I could. I then weathered the helmet using a mix of scratching, a water/spray paint technique, and some "artistic rough housing".
+        </p>
+        <p class="process-body">
+          For the vents I 3D printed in TPU to give them a rubber-like texture. For the visor I made a buck out of the 3D model provided by Galactic Armory and used my home built vacuum forming machine to mold PETG around it. I then dyed the plastic using iDye Poly orange and airbrushed a layer of Spaz Stix mirror chrome on the inside to create the opaque look of the original helmet. All of this was glued onto the helmet with hot glue so it can be removed easily if needed down the road.
+        </p>
+        <p class="process-body">
+          Finally I added LEDs to the light holes on the helmet, wired to a AA battery pack glued to the inside. I used floor protection dots to diffuse the light from the LEDs. I also added fans to keep the helmet cool and prevent the visor from fogging, with vents throughout the helmet to move the air. All of the electronics were glued in and connected to a portable battery.
+        </p>
+        <div class="techniques">
+          <p class="techniques-label">Techniques Used</p>
+          <!-- UPDATE: Remove or add technique tags as needed -->
+          <div class="techniques-list">
+            <span class="technique-tag">FDM printing in PLA+ and TPU</span>
+            <span class="technique-tag">Epoxy bonding</span>
+            <span class="technique-tag">Sanding</span>
+            <span class="technique-tag">Custom color mixing and testing</span>
+            <span class="technique-tag">Spray painting</span>
+            <span class="technique-tag">Airbrushing</span>
+            <span class="technique-tag">Water/spray paint weathering technique</span>
+            <span class="technique-tag">Physical distressing</span>
+            <span class="technique-tag">Weathering</span>
+            <span class="technique-tag">Plastic dyeing</span>
+            <span class="technique-tag">Vacuum Forming</span>
+            <span class="technique-tag">LED wiring and installation</span>
+            <span class="technique-tag">Light diffusion</span>
+            <span class="technique-tag">Fan installation</span>
+            <span class="technique-tag">Battery pack wiring and mounting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINISHED GALLERY -->
+  <section class="gallery">
+    <p class="label">Finished Piece</p>
+    <h2 class="gallery-heading">The Result</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/finished-helmet.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/printed-parts-with-initial-sanding.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/final-sanding-top.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/final-sanding-front.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/final-paint-side.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/first-coat-paint.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/clean-paint-job-front.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/final-weathered-pass-front.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/final-weathered-pass-top.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/finished-back.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/vacuformed-visor.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/visor-testfit.jpg" alt="Me with helmet on" />
+      </div>
+      <div class="gallery-item" data-src="">
+        <img src="../images/helmet/finished-visor.jpg" alt="Me with helmet on" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT NAV -->
+  <nav class="project-nav">
+    <!-- UPDATE: Change href to previous project page -->
+    <a href="#" class="project-nav-link">← Previous Project</a>
+    <a href="../index.html#props" class="project-nav-center">All Props</a>
+    <!-- UPDATE: Change href to next project page -->
+    <a href="#" class="project-nav-link">Next Project →</a>
+  </nav>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-copy">© 2026 Michael Kessler — michaelkessler.studio</p>
+    <ul class="footer-links">
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">SoundCloud</a></li>
+      <li><a href="#">Bandcamp</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">Close ✕</button>
+    <img src="" alt="" id="lightbox-img" />
+  </div>
+
+  <script>
+    // Lightbox
+    const lightbox     = document.getElementById('lightbox');
+    const lightboxImg  = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
+</body>
+</html>
