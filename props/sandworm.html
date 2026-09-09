@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krampus Face Sculpt — Michael Kessler</title>
-  <meta name="description" content="Krampus face sculpt replica — physical effects by Michael Kessler." />
+  <title>Sandworm (Beetlejuice) — Michael Kessler</title>
+  <meta name="description" content="Sandworm Beetlejuice prop build — physical effects by Michael Kessler." />
   <link rel="icon" type="image/x-icon" href="../favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,12 +48,9 @@
     /* ── PROCESS ── */
     .process { padding: 5rem 3.5rem; border-bottom: 1px solid var(--border); background: var(--bg-raised); }
     .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .process-image { position: relative; aspect-ratio: 2/3; background: var(--bg-card); border: 1px solid var(--border-md); overflow: hidden; }
+    .process-image { position: relative; aspect-ratio: 4/4; background: var(--bg-card); border: 1px solid var(--border-md); overflow: hidden; }
     .process-image::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--copper); }
     .process-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .process-image-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; }
-    .process-image-placeholder svg { width: 32px; height: 32px; stroke: var(--border-md); fill: none; stroke-width: 1; }
-    .process-image-placeholder span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
     .image-caption { margin-top: 0.75rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.5; }
     .process-content { padding-top: 0.5rem; }
     .label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; }
@@ -77,9 +74,6 @@
     .gallery-item { aspect-ratio: 4/3; background: var(--bg-card); overflow: hidden; cursor: pointer; position: relative; }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
     .gallery-item:hover img { transform: scale(1.04); }
-    .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; }
-    .gallery-placeholder svg { width: 28px; height: 28px; stroke: var(--border-md); fill: none; stroke-width: 1; }
-    .gallery-placeholder span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
 
     /* ── LIGHTBOX ── */
     .lightbox { position: fixed; inset: 0; background: rgba(10,10,8,0.96); z-index: 900; display: none; align-items: center; justify-content: center; padding: 2rem; }
@@ -89,9 +83,7 @@
     .lightbox-close:hover { color: var(--white); border-color: var(--white); }
 
     /* ── PROJECT NAV ── */
-    .project-nav { padding: 3rem 3.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
-    .project-nav-link { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; transition: color 0.2s; }
-    .project-nav-link:hover { color: var(--copper); }
+    .project-nav { padding: 3rem 3.5rem; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid var(--border); }
     .project-nav-center { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; text-decoration: none; transition: opacity 0.2s; }
     .project-nav-center:hover { opacity: 1; color: var(--copper); }
 
@@ -118,14 +110,17 @@
       .page-meta { flex-direction: column; gap: 1rem; }
     }
 
-    /* ══════════════════════════════════════
-       DEV MODE — Ctrl+Shift+D to activate
-    ══════════════════════════════════════ */
+    /* ══════════════════════════════════════════
+       DEV MODE STYLES — invisible to visitors
+       activated only via Ctrl+Shift+D locally
+    ══════════════════════════════════════════ */
     .dev-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800; background: #0a0900; border-top: 2px solid var(--copper); padding: 0.75rem 2rem; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
     body.dev-mode .dev-bar { display: flex; }
+
     .dev-bar-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); display: flex; align-items: center; gap: 0.6rem; }
     .dev-dot { width: 6px; height: 6px; background: var(--copper); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
     .dev-actions { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
     .dev-btn { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.45rem 1.1rem; cursor: pointer; border: none; transition: all 0.2s; }
     .dev-btn-primary { background: var(--copper); color: var(--bg); }
@@ -134,29 +129,35 @@
     .dev-btn-secondary:hover { border-color: var(--white); color: var(--white); }
     .dev-hint { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.35; }
 
+    /* Drop zones in dev mode */
     body.dev-mode .gallery-item { cursor: default; }
     body.dev-mode .gallery-item.drop-zone { border: 1px dashed var(--copper-dim); cursor: pointer; position: relative; }
     body.dev-mode .gallery-item.drop-zone.drag-over { border-color: var(--copper); background: #1e1c12; }
-    body.dev-mode .gallery-item.drop-zone .drop-hint { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; pointer-events: none; }
-    body.dev-mode .gallery-item.drop-zone .drop-hint span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.4rem;
+      pointer-events: none;
+    }
+    body.dev-mode .gallery-item.drop-zone .drop-hint span {
+      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--white-dim); opacity: 0.4;
+    }
     body.dev-mode .gallery-item.drop-zone .drop-hint .drop-icon { font-size: 1.4rem; opacity: 0.3; }
     body.dev-mode .gallery-item.has-image .drop-hint { display: none; }
 
+    /* Add slot button */
     body.dev-mode .add-slot-wrap { display: flex; }
     .add-slot-wrap { display: none; }
-    .add-slot { aspect-ratio: 4/3; background: transparent; border: 1px dashed var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s; width: 100%; }
+    .add-slot {
+      aspect-ratio: 4/3; background: transparent; border: 1px dashed var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.5rem; cursor: pointer; transition: all 0.2s; width: 100;
+    }
     .add-slot:hover { border-color: var(--copper-dim); }
     .add-slot span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.35; }
     .add-slot-icon { font-size: 1.2rem; opacity: 0.25; }
 
-    /* Process image drop zone in dev mode */
-    body.dev-mode .process-image { cursor: pointer; }
-    body.dev-mode .process-image:hover { border-color: var(--copper-dim); }
-    body.dev-mode .process-image .process-drop-hint { display: flex; }
-    .process-drop-hint { display: none; position: absolute; inset: 0; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(17,16,9,0.7); pointer-events: none; }
-    .process-drop-hint span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.6; }
-    body.dev-mode .process-image.has-image .process-drop-hint { display: none; }
-
+    /* Code output modal */
     .dev-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(10,10,8,0.96); align-items: center; justify-content: center; padding: 2rem; }
     .dev-modal.open { display: flex; }
     .dev-modal-box { background: var(--bg-raised); border: 1px solid var(--border-md); max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; }
@@ -183,23 +184,23 @@
 
   <!-- PAGE HEADER -->
   <header class="page-header">
-    <div class="page-header-bg">KRAMPUS</div>
+    <div class="page-header-bg">SANDWORM</div>
     <p class="breadcrumb">
       <a href="../index.html">Home</a>
       <span class="breadcrumb-sep">/</span>
       <a href="../index.html#props">Props</a>
       <span class="breadcrumb-sep">/</span>
-      Krampus Face Sculpt
+      Sandworm (Beetlejuice)
     </p>
-    <h1 class="page-title">Krampus<br>Face Sculpt</h1>
+    <h1 class="page-title">Sandworm<br>(Beetlejuice)</h1>
     <div class="page-meta">
       <div class="meta-item">
         <span class="meta-label">Category</span>
-        <span class="meta-value">Sculpture / Mask</span>
+        <span class="meta-value">Prop</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Year</span>
-        <span class="meta-value">2024</span>
+        <span class="meta-value">2025</span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Client</span>
@@ -213,41 +214,35 @@
     <div class="process-grid">
       <div>
         <div class="process-image" id="process-image-wrap">
-          <!-- Drop an image here in dev mode, or replace with: -->
-          <img src="../images/krampus/krampus-straight.jpg" alt="Sculpting the Krampus face" style="width:100%;height:100%;object-fit:cover;display:block;" />
-          <!-- <div class="process-image-placeholder">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="10" r="3"/><path d="M6 21v-1a6 6 0 0 1 12 0v1"/></svg>
-            <span>process_photo.jpg</span>
-          </div>
-          <div class="process-drop-hint">
-            <div style="font-size:1.4rem;opacity:0.4;">📷</div>
-            <span>Click or drop to set process photo</span>
-          </div> -->
+          <img src="../images/sandworm/wallhang1.jpg" alt="Sandworm with Betelgeuse sign" />
         </div>
-        <p class="image-caption" id="process-caption">Finished Sculpt</p>
+        <p class="image-caption">Sandworm with Betelgeuse sign</p>
       </div>
       <div class="process-content">
         <p class="label">Behind the Build</p>
         <h2 class="process-heading">How this piece came together</h2>
         <p class="process-body">
-          In 2015 I saw the movie Krampus and fell in love with the creature suit and sculpt that WETA made for the character. I've always loved WETA Workshop's work, and it inspired me to try my hand at remaking the Krampus face sculpt as close as I could to the original — with the added goal of sculpting it on my own face bust and making it wearable as a mask.
+          I have had a deep love for Beetlejuice and the special effects and props that came with the movie. I decided I'd like to theme part of my basement with Beetlejuice props, so the first two pieces were the sign and a sandworm to complement it.
         </p>
         <p class="process-body">
-          For the clay I used Monster Makers medium, drawing from a mix of Xiem, Michael's, and my own handmade sculpting tools. One thing that really sped up my workflow was 3D printing custom skin texture rollers — I could get a solid base texture down quickly using impressed texturing, then iterate and refine, adding wrinkles, pores, and surface detail through additive modeling and carving. Blending and smoothing kept everything cohesive as the piece came together.
+          I bought the 3D model from <a href="https://cults3d.com/en/3d-model/art/sandworm-beetlejuice">Dango88</a> on Cults and printed the sandworm in parts out of PLA+. I then epoxied those parts together and used a mix of sanding and filling primer to get the prop as smooth as possible.
         </p>
         <p class="process-body">
-          This was a really fun sculpt to work on.
+          From there I painted the body completely black, then added the signature black and white stripes. For the inner head I used a mix of pinks and yellows for the eyes, gums, and spots, followed by light weathering to give it that distressed look from the film.
+        </p>
+        <p class="process-body">
+          For the glassy eyes and wet teeth, I used UV resin to create the glossy finish.
         </p>
         <div class="techniques">
           <p class="techniques-label">Techniques Used</p>
           <div class="techniques-list">
-            <span class="technique-tag">Clay Sculpting</span>
-            <span class="technique-tag">Carving</span>
-            <span class="technique-tag">Additive Modeling</span>
-            <span class="technique-tag">Blending & Smoothing</span>
-            <span class="technique-tag">Skin Texture Rolling</span>
-            <span class="technique-tag">3D Printed Tooling</span>
-            <span class="technique-tag">Face Cast Armature</span>
+            <span class="technique-tag">FDM Printing — PLA+ & TPU</span>
+            <span class="technique-tag">Epoxy Bonding</span>
+            <span class="technique-tag">Sanding & Filling</span>
+            <span class="technique-tag">Custom Color Mixing</span>
+            <span class="technique-tag">Hand Painting</span>
+            <span class="technique-tag">Weathering</span>
+            <span class="technique-tag">UV Resin</span>
           </div>
         </div>
       </div>
@@ -259,44 +254,44 @@
     <div class="gallery-header">
       <div>
         <p class="label">Finished Piece</p>
-        <h2 class="gallery-heading">The Result</h2>
+        <h2 class="gallery-heading">The Process</h2>
       </div>
     </div>
     <div class="gallery-grid" id="gallery-grid">
-      <!-- Replace placeholders with real images once you have them -->
-      <!-- Or use Ctrl+Shift+D to drop images in directly -->
-       <div class="gallery-item" data-filename="krampus-bottom-right.jpg">
-        <img src="../images/krampus/krampus-bottom-right.jpg" alt="krampus bottom right" />
+      <div class="gallery-item" data-filename="3dprint.jpg">
+        <img src="../images/sandworm/3dprint.jpg" alt="3D Print" />
       </div>
-      <div class="gallery-item" data-filename="krampus-final-left.jpg">
-        <img src="../images/krampus/krampus-final-left.jpg" alt="krampus final left" />
+      <div class="gallery-item" data-filename="finished3dprint.jpg">
+        <img src="../images/sandworm/finished3dprint.jpg" alt="Finished 3D Print" />
       </div>
-      <div class="gallery-item" data-filename="krampus-full-left.jpg">
-        <img src="../images/krampus/krampus-full-left.jpg" alt="krampus full left" />
+      <div class="gallery-item" data-filename="shinecoat.jpg">
+        <img src="../images/sandworm/shinecoat.jpg" alt="Filler primer" />
       </div>
-      <div class="gallery-item" data-filename="krampus-bottom-left.jpg">
-        <img src="../images/krampus/krampus-bottom-left.jpg" alt="krampus bottom left" />
+      <div class="gallery-item" data-filename="paintprogress.png">
+        <img src="../images/sandworm/paintprogress.png" alt="Painting progress" />
       </div>
-      <div class="gallery-item" data-filename="krampus-top-right.jpg">
-        <img src="../images/krampus/krampus-top-right.jpg" alt="krampus top right" />
+      <div class="gallery-item" data-filename="finishedpaint.jpg">
+        <img src="../images/sandworm/finishedpaint.jpg" alt="Finished paint with resin" />
       </div>
-      <div class="gallery-item" data-filename="krampus-upclose-right.jpg">
-        <img src="../images/krampus/krampus-upclose-right.jpg" alt="krampus upclose right" />
+      <div class="gallery-item" data-filename="wallhang2.jpg">
+        <img src="../images/sandworm/wallhang2.jpg" alt="Wall display 1" />
       </div>
-      <div class="gallery-item" data-filename="krampus-upclose-right-bottom.jpg">
-        <img src="../images/krampus/krampus-upclose-right-bottom.jpg" alt="krampus upclose right bottom" />
+      <div class="gallery-item" data-filename="wallhang3.jpg">
+        <img src="../images/sandworm/wallhang3.jpg" alt="Wall display 2" />
       </div>
-      <!-- <div class="gallery-item" data-filename="PXL_20260624_204232579.jpg">
-        <img src="../images/krampus/PXL_20260624_204232579.jpg" alt="PXL 20260624 204232579" />
-      </div> -->
+      <!-- Add slot — only visible in dev mode -->
+      <div class="add-slot-wrap">
+        <div class="add-slot" id="add-slot">
+          <div class="add-slot-icon">＋</div>
+          <span>Add image</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PROJECT NAV -->
   <nav class="project-nav">
-    <a href="sandworm.html" class="project-nav-link">← Sandworm (Beetlejuice)</a>
     <a href="../index.html#props" class="project-nav-center">All Props</a>
-    <a href="#" class="project-nav-link">Next Project →</a>
   </nav>
 
   <!-- FOOTER -->
@@ -323,7 +318,7 @@
       Dev Mode — Ctrl+Shift+D to exit
     </div>
     <div class="dev-actions">
-      <span class="dev-hint">Drag images onto gallery slots or click + to add</span>
+      <span class="dev-hint" id="dev-hint">Drag images onto gallery slots or click + to add</span>
       <button class="dev-btn dev-btn-primary" id="dev-copy-btn">Copy Gallery Code</button>
       <button class="dev-btn dev-btn-secondary" id="dev-exit-btn">Exit Dev Mode</button>
     </div>
@@ -338,19 +333,19 @@
       </div>
       <div class="dev-code" id="dev-code-output"></div>
       <div class="dev-modal-footer">
-        <span class="dev-modal-hint">Replace the contents of .gallery-grid with this code, then move your image files into images/krampus/</span>
+        <span class="dev-modal-hint">Replace the contents of .gallery-grid with this code, then move your image files into images/sandworm/</span>
         <button class="dev-copy-btn" id="dev-modal-copy">Copy Code</button>
       </div>
     </div>
   </div>
 
   <script>
-    const body        = document.body;
-    const lightbox    = document.getElementById('lightbox');
+    const body       = document.body;
+    const lightbox   = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const galleryGrid = document.getElementById('gallery-grid');
-    const devModal    = document.getElementById('dev-modal');
-    const FOLDER      = 'krampus'; // change this per project
+    const devModal   = document.getElementById('dev-modal');
+    const FOLDER     = 'sandworm'; // change this per project
 
     let devMode = false;
 
@@ -366,13 +361,13 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); closeModal(); } });
 
     function bindLightbox() {
-      galleryGrid.querySelectorAll('.gallery-item img').forEach(img => {
+      galleryGrid.querySelectorAll('.gallery-item:not(.drop-zone) img, .gallery-item.has-image img').forEach(img => {
         img.onclick = () => { if (!devMode) openLightbox(img.src, img.alt); };
       });
     }
     bindLightbox();
 
-    /* ── DEV MODE ── */
+    /* ── DEV MODE TOGGLE ── */
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.shiftKey && e.key === 'D') { e.preventDefault(); toggleDev(); }
     });
@@ -381,11 +376,10 @@
     function toggleDev() {
       devMode = !devMode;
       body.classList.toggle('dev-mode', devMode);
-      if (devMode) { enableDropZones(); enableProcessDrop(); }
-      else { disableDropZones(); disableProcessDrop(); }
+      if (devMode) enableDropZones(); else disableDropZones();
     }
 
-    /* ── GALLERY DROP ZONES ── */
+    /* ── DROP ZONES ── */
     function enableDropZones() {
       galleryGrid.querySelectorAll('.gallery-item').forEach(item => {
         item.classList.add('drop-zone');
@@ -416,25 +410,26 @@
     function onDragOver(e) { e.preventDefault(); this.classList.add('drag-over'); }
     function onDragLeave() { this.classList.remove('drag-over'); }
     function onDrop(e) {
-      e.preventDefault(); this.classList.remove('drag-over');
+      e.preventDefault();
+      this.classList.remove('drag-over');
       const file = e.dataTransfer.files[0];
       if (file && file.type.startsWith('image/')) loadImageIntoSlot(this, file);
     }
+
     function onSlotClick() {
       const input = document.createElement('input');
       input.type = 'file'; input.accept = 'image/*';
       input.onchange = () => { if (input.files[0]) loadImageIntoSlot(this, input.files[0]); };
       input.click();
     }
+
     function loadImageIntoSlot(slot, file) {
       const url = URL.createObjectURL(file);
+      const name = file.name;
       let img = slot.querySelector('img');
-      const placeholder = slot.querySelector('.gallery-placeholder');
-      if (placeholder) placeholder.remove();
       if (!img) { img = document.createElement('img'); slot.appendChild(img); }
-      img.src = url;
-      img.alt = file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
-      slot.dataset.filename = file.name;
+      img.src = url; img.alt = name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+      slot.dataset.filename = name;
       slot.classList.add('has-image');
       const hint = slot.querySelector('.drop-hint');
       if (hint) hint.style.display = 'none';
@@ -453,45 +448,6 @@
       newItem.addEventListener('click', onSlotClick);
     });
 
-    /* ── PROCESS IMAGE DROP ── */
-    const processWrap = document.getElementById('process-image-wrap');
-    function enableProcessDrop() {
-      processWrap.addEventListener('click', onProcessClick);
-      processWrap.addEventListener('dragover', onProcessDragOver);
-      processWrap.addEventListener('dragleave', onProcessDragLeave);
-      processWrap.addEventListener('drop', onProcessDrop);
-    }
-    function disableProcessDrop() {
-      processWrap.removeEventListener('click', onProcessClick);
-      processWrap.removeEventListener('dragover', onProcessDragOver);
-      processWrap.removeEventListener('dragleave', onProcessDragLeave);
-      processWrap.removeEventListener('drop', onProcessDrop);
-    }
-    function onProcessClick() {
-      const input = document.createElement('input');
-      input.type = 'file'; input.accept = 'image/*';
-      input.onchange = () => { if (input.files[0]) loadProcessImage(input.files[0]); };
-      input.click();
-    }
-    function onProcessDragOver(e) { e.preventDefault(); processWrap.style.borderColor = 'var(--copper)'; }
-    function onProcessDragLeave() { processWrap.style.borderColor = ''; }
-    function onProcessDrop(e) {
-      e.preventDefault(); processWrap.style.borderColor = '';
-      const file = e.dataTransfer.files[0];
-      if (file && file.type.startsWith('image/')) loadProcessImage(file);
-    }
-    function loadProcessImage(file) {
-      const url = URL.createObjectURL(file);
-      const placeholder = processWrap.querySelector('.process-image-placeholder');
-      if (placeholder) placeholder.remove();
-      let img = processWrap.querySelector('img');
-      if (!img) { img = document.createElement('img'); processWrap.insertBefore(img, processWrap.firstChild); }
-      img.src = url; img.alt = 'Process photo';
-      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
-      processWrap.classList.add('has-image');
-      processWrap.dataset.filename = file.name;
-    }
-
     /* ── GENERATE CODE ── */
     document.getElementById('dev-copy-btn').addEventListener('click', () => {
       const items = galleryGrid.querySelectorAll('.gallery-item:not(.add-slot-wrap)');
@@ -501,12 +457,7 @@
         const alt = img ? img.alt : filename.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
         return `      <div class="gallery-item" data-filename="${filename}">\n        <img src="../images/${FOLDER}/${filename}" alt="${alt}" />\n      </div>`;
       }).join('\n');
-
-      const processFilename = processWrap.dataset.filename || 'process.jpg';
-      const processCode = `<img src="../images/${FOLDER}/${processFilename}" alt="Working on the build" style="width:100%;height:100%;object-fit:cover;display:block;" />`;
-
-      document.getElementById('dev-code-output').textContent =
-        `<!-- GALLERY CODE -->\n${lines}\n\n<!-- PROCESS IMAGE CODE -->\n${processCode}`;
+      document.getElementById('dev-code-output').textContent = lines;
       devModal.classList.add('open');
     });
 
@@ -515,7 +466,8 @@
     devModal.addEventListener('click', e => { if (e.target === devModal) closeModal(); });
 
     document.getElementById('dev-modal-copy').addEventListener('click', function() {
-      navigator.clipboard.writeText(document.getElementById('dev-code-output').textContent).then(() => {
+      const text = document.getElementById('dev-code-output').textContent;
+      navigator.clipboard.writeText(text).then(() => {
         this.textContent = 'Copied ✓'; this.classList.add('copied');
         setTimeout(() => { this.textContent = 'Copy Code'; this.classList.remove('copied'); }, 2000);
       });
