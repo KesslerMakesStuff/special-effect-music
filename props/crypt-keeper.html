@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypt Keeper (Tales from the Crypt) — Michael Kessler</title>
+  <meta name="description" content="Crypt Keeper animatronic — physical effects by Michael Kessler." />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Karla:wght@300;400;600&family=Courier+Prime:wght@400;700&family=Teko:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #111009; --bg-raised: #1a1810; --bg-card: #201e14;
+      --copper: #B87333; --copper-dim: #7a4d22; --copper-lt: #d4956a;
+      --white: #ede8df; --white-dim: #a09890;
+      --border: #ffffff0f; --border-md: #ffffff1a;
+      --display: 'Playfair Display', Georgia, serif;
+      --body: 'Karla', sans-serif; --mono: 'Courier Prime', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: var(--body); font-weight: 300; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    ::selection { background: var(--copper); color: var(--bg); }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 3.5rem; background: rgba(17,16,9,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Teko', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; }
+    .nav-logo span { color: var(--copper); }
+    .nav-back { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--copper); }
+    .nav-hire { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.55rem 1.4rem; border: 1px solid var(--copper-dim); color: var(--copper); text-decoration: none; transition: all 0.2s; }
+    .nav-hire:hover { background: var(--copper); color: var(--bg); }
+
+    /* ── PAGE HEADER ── */
+    .page-header { padding: 10rem 3.5rem 4rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .page-header-bg { position: absolute; top: 50%; right: -2rem; transform: translateY(-50%); font-family: 'Teko', sans-serif; font-size: clamp(6rem, 15vw, 13rem); font-weight: 700; color: transparent; -webkit-text-stroke: 1px #ffffff05; pointer-events: none; user-select: none; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+    .breadcrumb { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
+    .breadcrumb a { color: var(--copper); text-decoration: none; transition: opacity 0.2s; }
+    .breadcrumb a:hover { opacity: 0.7; }
+    .breadcrumb-sep { opacity: 0.3; }
+    .page-title { font-family: 'Teko', sans-serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 700; line-height: 1; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 1.25rem; }
+    .page-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .meta-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); }
+    .meta-value { font-size: 0.9rem; color: var(--white-dim); }
+
+    /* ── PROCESS ── */
+    .process { padding: 5rem 3.5rem; border-bottom: 1px solid var(--border); background: var(--bg-raised); }
+    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .process-image { position: relative; aspect-ratio: 4/4; background: var(--bg-card); border: 1px solid var(--border-md); overflow: hidden; }
+    .process-image::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--copper); }
+    .process-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .process-image-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; }
+    .process-image-placeholder svg { width: 32px; height: 32px; stroke: var(--border-md); fill: none; stroke-width: 1; }
+    .process-image-placeholder span { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
+    .image-caption { margin-top: 0.75rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.5; }
+    .process-content { padding-top: 0.5rem; }
+    .label { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; }
+    .label::before { content: ''; width: 20px; height: 1px; background: var(--copper-dim); flex-shrink: 0; }
+    .process-heading { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2; color: var(--white); margin-bottom: 1.25rem; }
+    .process-body { font-size: 1rem; color: var(--white-dim); line-height: 1.85; margin-bottom: 1.25rem; }
+    .process-body strong { color: var(--white); font-weight: 600; }
+    .process-body a { color: var(--copper-lt); text-decoration: none; border-bottom: 1px solid var(--copper-dim); transition: border-color 0.2s; }
+    .process-body a:hover { border-color: var(--copper-lt); }
+    .techniques { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .techniques-label { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); margin-bottom: 1rem; }
+    .techniques-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .technique-tag { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 0.85rem; border: 1px solid var(--border-md); color: var(--white-dim); transition: all 0.2s; }
+    .technique-tag:hover { border-color: var(--copper-dim); color: var(--copper-lt); }
+
+    /* ── GALLERY ── */
+    .gallery { padding: 5rem 3.5rem; border-bottom: 1px solid var(--border); }
+    .gallery-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+    .gallery-heading { font-family: var(--display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--white); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .gallery-item { aspect-ratio: 4/3; background: var(--bg-card); overflow: hidden; cursor: pointer; position: relative; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; }
+    .gallery-placeholder svg { width: 28px; height: 28px; stroke: var(--border-md); fill: none; stroke-width: 1; }
+    .gallery-placeholder span { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
+
+    /* ── LIGHTBOX ── */
+    .lightbox { position: fixed; inset: 0; background: rgba(10,10,8,0.96); z-index: 900; display: none; align-items: center; justify-content: center; padding: 2rem; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; display: block; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); background: none; border: 1px solid var(--border-md); padding: 0.4rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .lightbox-close:hover { color: var(--white); border-color: var(--white); }
+
+    /* ── PROJECT NAV ── */
+    .project-nav { padding: 3rem 3.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
+    .project-nav-link { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .project-nav-link:hover { color: var(--copper); }
+    .project-nav-center { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; text-decoration: none; transition: opacity 0.2s; }
+    .project-nav-center:hover { opacity: 1; color: var(--copper); }
+
+    /* ── FOOTER ── */
+    footer { padding: 2rem 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.5; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; opacity: 0.5; transition: opacity 0.2s, color 0.2s; }
+    .footer-links a:hover { opacity: 1; color: var(--copper); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .page-header { padding: 8rem 1.5rem 3rem; }
+      .process { padding: 4rem 1.5rem; }
+      .process-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .gallery { padding: 4rem 1.5rem; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .project-nav { padding: 2rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .page-meta { flex-direction: column; gap: 1rem; }
+    }
+
+    /* ══════════════════════════════════════
+       DEV MODE — Ctrl+Shift+D to activate
+    ══════════════════════════════════════ */
+    .dev-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800; background: #0a0900; border-top: 2px solid var(--copper); padding: 0.75rem 2rem; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    body.dev-mode .dev-bar { display: flex; }
+    .dev-bar-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); display: flex; align-items: center; gap: 0.6rem; }
+    .dev-dot { width: 6px; height: 6px; background: var(--copper); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .dev-actions { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+    .dev-btn { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.45rem 1.1rem; cursor: pointer; border: none; transition: all 0.2s; }
+    .dev-btn-primary { background: var(--copper); color: var(--bg); }
+    .dev-btn-primary:hover { background: var(--copper-lt); }
+    .dev-btn-secondary { background: transparent; color: var(--white-dim); border: 1px solid var(--border-md); }
+    .dev-btn-secondary:hover { border-color: var(--white); color: var(--white); }
+    .dev-hint { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.35; }
+    body.dev-mode .gallery-item { cursor: default; }
+    body.dev-mode .gallery-item.drop-zone { border: 1px dashed var(--copper-dim); cursor: pointer; position: relative; }
+    body.dev-mode .gallery-item.drop-zone.drag-over { border-color: var(--copper); background: #1e1c12; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; pointer-events: none; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint .drop-icon { font-size: 1.4rem; opacity: 0.3; }
+    body.dev-mode .gallery-item.has-image .drop-hint { display: none; }
+    body.dev-mode .add-slot-wrap { display: flex; }
+    .add-slot-wrap { display: none; }
+    .add-slot { aspect-ratio: 4/3; background: transparent; border: 1px dashed var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s; width: 100%; }
+    .add-slot:hover { border-color: var(--copper-dim); }
+    .add-slot span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.35; }
+    .add-slot-icon { font-size: 1.2rem; opacity: 0.25; }
+    body.dev-mode .process-image { cursor: pointer; }
+    body.dev-mode .process-image:hover { border-color: var(--copper-dim); }
+    body.dev-mode .process-image .process-drop-hint { display: flex; }
+    .process-drop-hint { display: none; position: absolute; inset: 0; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(17,16,9,0.7); pointer-events: none; }
+    .process-drop-hint span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.6; }
+    body.dev-mode .process-image.has-image .process-drop-hint { display: none; }
+    .dev-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(10,10,8,0.96); align-items: center; justify-content: center; padding: 2rem; }
+    .dev-modal.open { display: flex; }
+    .dev-modal-box { background: var(--bg-raised); border: 1px solid var(--border-md); max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; }
+    .dev-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .dev-modal-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--copper); }
+    .dev-modal-close { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; background: none; border: 1px solid var(--border-md); color: var(--white-dim); padding: 0.3rem 0.8rem; cursor: pointer; transition: all 0.2s; }
+    .dev-modal-close:hover { border-color: var(--white); color: var(--white); }
+    .dev-code { padding: 1.25rem 1.5rem; font-family: var(--mono); font-size: 0.7rem; line-height: 1.7; color: #c8bfaf; white-space: pre; overflow-x: auto; background: var(--bg-card); border-bottom: 1px solid var(--border); }
+    .dev-modal-footer { padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+    .dev-modal-hint { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.4; }
+    .dev-copy-btn { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.25rem; background: var(--copper); color: var(--bg); border: none; cursor: pointer; transition: background 0.2s; }
+    .dev-copy-btn:hover { background: var(--copper-lt); }
+    .dev-copy-btn.copied { background: #4caf50; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">Michael <span>Kessler</span></a>
+    <a href="../index.html#props" class="nav-back">← Back to Props</a>
+    <a href="../index.html#contact" class="nav-hire">Hire Me</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-bg">CRYPT KEEPER</div>
+    <p class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="../index.html#props">Props</a>
+      <span class="breadcrumb-sep">/</span>
+      Crypt Keeper (Tales from the Crypt)
+    </p>
+    <h1 class="page-title">Crypt Keeper<br>(Tales from the Crypt)</h1>
+    <div class="page-meta">
+      <div class="meta-item">
+        <span class="meta-label">Category</span>
+        <span class="meta-value">Animatronic</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Year</span>
+        <span class="meta-value">2007</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Client</span>
+        <span class="meta-value">College Project</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="process-grid">
+      <div>
+        <div class="process-image" id="process-image-wrap">
+          <img src="../images/crypt-keeper/crypt-keeper.jpg" alt="Crypt Keeper animatronic" />
+          <div class="process-drop-hint">
+            <div style="font-size:1.4rem;opacity:0.4;">📷</div>
+            <span>Click or drop to replace photo</span>
+          </div>
+        </div>
+        <p class="image-caption">Crypt Keeper Animatronic — College Final Project</p>
+      </div>
+      <div class="process-content">
+        <p class="label">Behind the Build</p>
+        <h2 class="process-heading">How this piece came together</h2>
+        <p class="process-body">
+          During my final year of college I had to choose a subject for my animatronics project. I was deep into watching Tales from the Crypt at the time, so picking the Crypt Keeper was a no-brainer. Unfortunately this project predates decent digital cameras and phone cameras entirely, so very little documentation survived. I wanted to include it anyway because it represents some of my earliest serious animatronics work and was genuinely one of the most fun builds I've tackled. The latex skin has heavily deteriorated over the years and the animatronic is no longer operational, but the mechanics and the process behind it are worth showing.
+        </p>
+        <p class="process-body">
+          The bust was sculpted in Chavant clay, starting with the core structure before building up the surface detail. From there I made the mold using Ultracal 30, which also became the inner core for the animatronic mechanism. The shell was laid up in fiberglass, keeping it light enough for the mechanics to move freely inside. The eyes and teeth were sculpted in Chavant clay and cast in acrylic.
+        </p>
+        <p class="process-body">
+          For the control system I used servos driven by brake cabling, powered by a 4.8V 2000mAh battery pack and operated with a Futaba T4YF radio controller — the same kind of setup you'd find on a proper film puppet.
+        </p>
+        <div class="techniques">
+          <p class="techniques-label">Techniques Used</p>
+          <div class="techniques-list">
+            <span class="technique-tag">Clay Sculpting</span>
+            <span class="technique-tag">Ultracal Molding</span>
+            <span class="technique-tag">Fiberglass Layup</span>
+            <span class="technique-tag">Acrylic Casting</span>
+            <span class="technique-tag">Foam Casting</span>
+            <span class="technique-tag">Latex Skin</span>
+            <span class="technique-tag">Servo Mechanics</span>
+            <span class="technique-tag">Brake Cable Rigging</span>
+            <span class="technique-tag">Painting</span>
+            <span class="technique-tag">Radio Control</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="gallery-header">
+      <div>
+        <p class="label">Finished Piece</p>
+        <h2 class="gallery-heading">The Result</h2>
+      </div>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Replace placeholders with real images once you have them -->
+      <!-- Or use Ctrl+Shift+D to drop images in directly -->
+       <div class="gallery-item" data-filename="cyrpt-keeper-items.jpg">
+        <img src="../images/crypt-keeper/cyrpt-keeper-items.jpg" alt="crypt keeper all items" />
+      </div>
+      <div class="gallery-item" data-filename="crypt-keeper-animatronic.jpg">
+        <img src="../images/crypt-keeper/crypt-keeper-animatronic.jpg" alt="crypt keeper animatronic" />
+      </div>
+      <div class="gallery-item" data-filename="animatronic-brain.jpg">
+        <img src="../images/crypt-keeper/animatronic-brain.jpg" alt="cryper keeper animatronic brain" />
+      </div>
+      <div class="add-slot-wrap">
+        <div class="add-slot" id="add-slot">
+          <div class="add-slot-icon">＋</div>
+          <span>Add image</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT NAV -->
+  <div class="project-nav">
+    <a href="krampus.html" class="project-nav-link">← Krampus</a>
+    <a href="../index.html#props" class="project-nav-center">All Props</a>
+    <!-- Add next project link here when ready -->
+    <span></span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-copy">© 2026 Michael Kessler — michaelkessler.studio</p>
+    <ul class="footer-links">
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">SoundCloud</a></li>
+      <li><a href="#">Bandcamp</a></li>
+      <li><a href="#">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">Close ✕</button>
+    <img src="" alt="" id="lightbox-img" />
+  </div>
+
+  <!-- DEV MODE BAR -->
+  <div class="dev-bar">
+    <div class="dev-bar-label">
+      <div class="dev-dot"></div>
+      Dev Mode — Ctrl+Shift+D to exit
+    </div>
+    <div class="dev-actions">
+      <span class="dev-hint">Drag images onto gallery slots or click + to add</span>
+      <button class="dev-btn dev-btn-primary" id="dev-copy-btn">Copy Gallery Code</button>
+      <button class="dev-btn dev-btn-secondary" id="dev-exit-btn">Exit Dev Mode</button>
+    </div>
+  </div>
+
+  <!-- DEV CODE MODAL -->
+  <div class="dev-modal" id="dev-modal">
+    <div class="dev-modal-box">
+      <div class="dev-modal-header">
+        <span class="dev-modal-title">Gallery HTML — copy and paste into your page</span>
+        <button class="dev-modal-close" id="dev-modal-close">Close ✕</button>
+      </div>
+      <div class="dev-code" id="dev-code-output"></div>
+      <div class="dev-modal-footer">
+        <span class="dev-modal-hint">Replace the contents of .gallery-grid with this code, then move your image files into images/crypt-keeper/</span>
+        <button class="dev-copy-btn" id="dev-modal-copy">Copy Code</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const body        = document.body;
+    const lightbox    = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const galleryGrid = document.getElementById('gallery-grid');
+    const devModal    = document.getElementById('dev-modal');
+    const FOLDER      = 'crypt-keeper';
+
+    let devMode = false;
+
+    /* ── LIGHTBOX ── */
+    function openLightbox(src, alt) {
+      lightboxImg.src = src; lightboxImg.alt = alt;
+      lightbox.classList.add('open');
+      body.style.overflow = 'hidden';
+    }
+    function closeLightbox() { lightbox.classList.remove('open'); body.style.overflow = ''; }
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); closeModal(); } });
+
+    function bindLightbox() {
+      galleryGrid.querySelectorAll('.gallery-item img').forEach(img => {
+        img.onclick = () => { if (!devMode) openLightbox(img.src, img.alt); };
+      });
+    }
+    bindLightbox();
+
+    /* ── DEV MODE ── */
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && e.shiftKey && e.key === 'D') { e.preventDefault(); toggleDev(); }
+    });
+    document.getElementById('dev-exit-btn').addEventListener('click', toggleDev);
+
+    function toggleDev() {
+      devMode = !devMode;
+      body.classList.toggle('dev-mode', devMode);
+      if (devMode) { enableDropZones(); enableProcessDrop(); }
+      else { disableDropZones(); disableProcessDrop(); }
+    }
+
+    /* ── GALLERY DROP ZONES ── */
+    function enableDropZones() {
+      galleryGrid.querySelectorAll('.gallery-item').forEach(item => {
+        item.classList.add('drop-zone');
+        if (!item.querySelector('.drop-hint') && !item.classList.contains('has-image')) {
+          const hint = document.createElement('div');
+          hint.className = 'drop-hint';
+          hint.innerHTML = '<div class="drop-icon">📷</div><span>Drop image here</span>';
+          item.appendChild(hint);
+        }
+        item.addEventListener('dragover', onDragOver);
+        item.addEventListener('dragleave', onDragLeave);
+        item.addEventListener('drop', onDrop);
+        item.addEventListener('click', onSlotClick);
+      });
+    }
+
+    function disableDropZones() {
+      galleryGrid.querySelectorAll('.gallery-item').forEach(item => {
+        item.classList.remove('drop-zone', 'drag-over');
+        item.removeEventListener('dragover', onDragOver);
+        item.removeEventListener('dragleave', onDragLeave);
+        item.removeEventListener('drop', onDrop);
+        item.removeEventListener('click', onSlotClick);
+      });
+      bindLightbox();
+    }
+
+    function onDragOver(e) { e.preventDefault(); this.classList.add('drag-over'); }
+    function onDragLeave() { this.classList.remove('drag-over'); }
+    function onDrop(e) {
+      e.preventDefault(); this.classList.remove('drag-over');
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith('image/')) loadImageIntoSlot(this, file);
+    }
+    function onSlotClick() {
+      const input = document.createElement('input');
+      input.type = 'file'; input.accept = 'image/*';
+      input.onchange = () => { if (input.files[0]) loadImageIntoSlot(this, input.files[0]); };
+      input.click();
+    }
+    function loadImageIntoSlot(slot, file) {
+      const url = URL.createObjectURL(file);
+      let img = slot.querySelector('img');
+      const placeholder = slot.querySelector('.gallery-placeholder');
+      if (placeholder) placeholder.remove();
+      if (!img) { img = document.createElement('img'); slot.appendChild(img); }
+      img.src = url;
+      img.alt = file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+      slot.dataset.filename = file.name;
+      slot.classList.add('has-image');
+      const hint = slot.querySelector('.drop-hint');
+      if (hint) hint.style.display = 'none';
+    }
+
+    /* ── ADD SLOT ── */
+    document.getElementById('add-slot').addEventListener('click', () => {
+      const newItem = document.createElement('div');
+      newItem.className = 'gallery-item drop-zone';
+      newItem.dataset.filename = '';
+      newItem.innerHTML = '<div class="drop-hint"><div class="drop-icon">📷</div><span>Drop image here</span></div>';
+      galleryGrid.insertBefore(newItem, document.querySelector('.add-slot-wrap'));
+      newItem.addEventListener('dragover', onDragOver);
+      newItem.addEventListener('dragleave', onDragLeave);
+      newItem.addEventListener('drop', onDrop);
+      newItem.addEventListener('click', onSlotClick);
+    });
+
+    /* ── PROCESS IMAGE DROP ── */
+    const processWrap = document.getElementById('process-image-wrap');
+    function enableProcessDrop() {
+      processWrap.addEventListener('click', onProcessClick);
+      processWrap.addEventListener('dragover', onProcessDragOver);
+      processWrap.addEventListener('dragleave', onProcessDragLeave);
+      processWrap.addEventListener('drop', onProcessDrop);
+    }
+    function disableProcessDrop() {
+      processWrap.removeEventListener('click', onProcessClick);
+      processWrap.removeEventListener('dragover', onProcessDragOver);
+      processWrap.removeEventListener('dragleave', onProcessDragLeave);
+      processWrap.removeEventListener('drop', onProcessDrop);
+    }
+    function onProcessClick() {
+      const input = document.createElement('input');
+      input.type = 'file'; input.accept = 'image/*';
+      input.onchange = () => { if (input.files[0]) loadProcessImage(input.files[0]); };
+      input.click();
+    }
+    function onProcessDragOver(e) { e.preventDefault(); processWrap.style.borderColor = 'var(--copper)'; }
+    function onProcessDragLeave() { processWrap.style.borderColor = ''; }
+    function onProcessDrop(e) {
+      e.preventDefault(); processWrap.style.borderColor = '';
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith('image/')) loadProcessImage(file);
+    }
+    function loadProcessImage(file) {
+      const url = URL.createObjectURL(file);
+      const placeholder = processWrap.querySelector('.process-image-placeholder');
+      if (placeholder) placeholder.remove();
+      let img = processWrap.querySelector('img');
+      if (!img) { img = document.createElement('img'); processWrap.insertBefore(img, processWrap.firstChild); }
+      img.src = url; img.alt = 'Process photo';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+      processWrap.classList.add('has-image');
+      processWrap.dataset.filename = file.name;
+    }
+
+    /* ── GENERATE CODE ── */
+    document.getElementById('dev-copy-btn').addEventListener('click', () => {
+      const items = galleryGrid.querySelectorAll('.gallery-item:not(.add-slot-wrap)');
+      const lines = Array.from(items).map(item => {
+        const img = item.querySelector('img');
+        const filename = item.dataset.filename || 'image.jpg';
+        const alt = img ? img.alt : filename.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+        return `      <div class="gallery-item" data-filename="${filename}">\n        <img src="../images/${FOLDER}/${filename}" alt="${alt}" />\n      </div>`;
+      }).join('\n');
+
+      const processFilename = processWrap.dataset.filename || 'process.jpg';
+      const processCode = `<img src="../images/${FOLDER}/${processFilename}" alt="Working on the build" style="width:100%;height:100%;object-fit:cover;display:block;" />`;
+
+      document.getElementById('dev-code-output').textContent =
+        `<!-- GALLERY CODE -->\n${lines}\n\n<!-- PROCESS IMAGE CODE -->\n${processCode}`;
+      devModal.classList.add('open');
+    });
+
+    function closeModal() { devModal.classList.remove('open'); }
+    document.getElementById('dev-modal-close').addEventListener('click', closeModal);
+    devModal.addEventListener('click', e => { if (e.target === devModal) closeModal(); });
+
+    document.getElementById('dev-modal-copy').addEventListener('click', function() {
+      navigator.clipboard.writeText(document.getElementById('dev-code-output').textContent).then(() => {
+        this.textContent = 'Copied ✓'; this.classList.add('copied');
+        setTimeout(() => { this.textContent = 'Copy Code'; this.classList.remove('copied'); }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>

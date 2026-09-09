@@ -27,15 +27,15 @@
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 3.5rem; background: rgba(17,16,9,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Teko', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; }
     .nav-logo span { color: var(--copper); }
-    .nav-back { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .nav-back { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
     .nav-back:hover { color: var(--copper); }
-    .nav-hire { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.55rem 1.4rem; border: 1px solid var(--copper-dim); color: var(--copper); text-decoration: none; transition: all 0.2s; }
+    .nav-hire { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.55rem 1.4rem; border: 1px solid var(--copper-dim); color: var(--copper); text-decoration: none; transition: all 0.2s; }
     .nav-hire:hover { background: var(--copper); color: var(--bg); }
 
     /* ── PAGE HEADER ── */
     .page-header { padding: 10rem 3.5rem 4rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
     .page-header-bg { position: absolute; top: 50%; right: -2rem; transform: translateY(-50%); font-family: 'Teko', sans-serif; font-size: clamp(6rem, 15vw, 13rem); font-weight: 700; color: transparent; -webkit-text-stroke: 1px #ffffff05; pointer-events: none; user-select: none; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
-    .breadcrumb { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
+    .breadcrumb { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
     .breadcrumb a { color: var(--copper); text-decoration: none; transition: opacity 0.2s; }
     .breadcrumb a:hover { opacity: 0.7; }
     .breadcrumb-sep { opacity: 0.3; }
@@ -51,9 +51,12 @@
     .process-image { position: relative; aspect-ratio: 4/4; background: var(--bg-card); border: 1px solid var(--border-md); overflow: hidden; }
     .process-image::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--copper); }
     .process-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .image-caption { margin-top: 0.75rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.5; }
+    .process-image-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; }
+    .process-image-placeholder svg { width: 32px; height: 32px; stroke: var(--border-md); fill: none; stroke-width: 1; }
+    .process-image-placeholder span { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
+    .image-caption { margin-top: 0.75rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.5; }
     .process-content { padding-top: 0.5rem; }
-    .label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; }
+    .label { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; }
     .label::before { content: ''; width: 20px; height: 1px; background: var(--copper-dim); flex-shrink: 0; }
     .process-heading { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2; color: var(--white); margin-bottom: 1.25rem; }
     .process-body { font-size: 1rem; color: var(--white-dim); line-height: 1.85; margin-bottom: 1.25rem; }
@@ -61,9 +64,9 @@
     .process-body a { color: var(--copper-lt); text-decoration: none; border-bottom: 1px solid var(--copper-dim); transition: border-color 0.2s; }
     .process-body a:hover { border-color: var(--copper-lt); }
     .techniques { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-    .techniques-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); margin-bottom: 1rem; }
+    .techniques-label { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); margin-bottom: 1rem; }
     .techniques-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .technique-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 0.85rem; border: 1px solid var(--border-md); color: var(--white-dim); transition: all 0.2s; }
+    .technique-tag { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 0.85rem; border: 1px solid var(--border-md); color: var(--white-dim); transition: all 0.2s; }
     .technique-tag:hover { border-color: var(--copper-dim); color: var(--copper-lt); }
 
     /* ── GALLERY ── */
@@ -74,24 +77,29 @@
     .gallery-item { aspect-ratio: 4/3; background: var(--bg-card); overflow: hidden; cursor: pointer; position: relative; }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
     .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; }
+    .gallery-placeholder svg { width: 28px; height: 28px; stroke: var(--border-md); fill: none; stroke-width: 1; }
+    .gallery-placeholder span { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
 
     /* ── LIGHTBOX ── */
     .lightbox { position: fixed; inset: 0; background: rgba(10,10,8,0.96); z-index: 900; display: none; align-items: center; justify-content: center; padding: 2rem; }
     .lightbox.open { display: flex; }
     .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; display: block; }
-    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); background: none; border: 1px solid var(--border-md); padding: 0.4rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); background: none; border: 1px solid var(--border-md); padding: 0.4rem 1rem; cursor: pointer; transition: all 0.2s; }
     .lightbox-close:hover { color: var(--white); border-color: var(--white); }
 
     /* ── PROJECT NAV ── */
-    .project-nav { padding: 3rem 3.5rem; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid var(--border); }
-    .project-nav-center { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; text-decoration: none; transition: opacity 0.2s; }
+    .project-nav { padding: 3rem 3.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
+    .project-nav-link { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .project-nav-link:hover { color: var(--copper); }
+    .project-nav-center { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; text-decoration: none; transition: opacity 0.2s; }
     .project-nav-center:hover { opacity: 1; color: var(--copper); }
 
     /* ── FOOTER ── */
     footer { padding: 2rem 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-copy { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.5; }
+    .footer-copy { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.5; }
     .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; opacity: 0.5; transition: opacity 0.2s, color 0.2s; }
+    .footer-links a { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; opacity: 0.5; transition: opacity 0.2s, color 0.2s; }
     .footer-links a:hover { opacity: 1; color: var(--copper); }
 
     /* ── RESPONSIVE ── */
@@ -109,6 +117,57 @@
       .gallery-grid { grid-template-columns: 1fr; }
       .page-meta { flex-direction: column; gap: 1rem; }
     }
+
+    /* ══════════════════════════════════════
+       DEV MODE — Ctrl+Shift+D to activate
+    ══════════════════════════════════════ */
+    .dev-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800; background: #0a0900; border-top: 2px solid var(--copper); padding: 0.75rem 2rem; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    body.dev-mode .dev-bar { display: flex; }
+    .dev-bar-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); display: flex; align-items: center; gap: 0.6rem; }
+    .dev-dot { width: 6px; height: 6px; background: var(--copper); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .dev-actions { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+    .dev-btn { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.45rem 1.1rem; cursor: pointer; border: none; transition: all 0.2s; }
+    .dev-btn-primary { background: var(--copper); color: var(--bg); }
+    .dev-btn-primary:hover { background: var(--copper-lt); }
+    .dev-btn-secondary { background: transparent; color: var(--white-dim); border: 1px solid var(--border-md); }
+    .dev-btn-secondary:hover { border-color: var(--white); color: var(--white); }
+    .dev-hint { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.35; }
+    body.dev-mode .gallery-item { cursor: default; }
+    body.dev-mode .gallery-item.drop-zone { border: 1px dashed var(--copper-dim); cursor: pointer; position: relative; }
+    body.dev-mode .gallery-item.drop-zone.drag-over { border-color: var(--copper); background: #1e1c12; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; pointer-events: none; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint .drop-icon { font-size: 1.4rem; opacity: 0.3; }
+    body.dev-mode .gallery-item.has-image .drop-hint { display: none; }
+    body.dev-mode .add-slot-wrap { display: flex; }
+    .add-slot-wrap { display: none; }
+    .add-slot { aspect-ratio: 4/3; background: transparent; border: 1px dashed var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s; width: 100%; }
+    .add-slot:hover { border-color: var(--copper-dim); }
+    .add-slot span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.35; }
+    .add-slot-icon { font-size: 1.2rem; opacity: 0.25; }
+    body.dev-mode .process-image { cursor: pointer; }
+    body.dev-mode .process-image:hover { border-color: var(--copper-dim); }
+    body.dev-mode .process-image .process-drop-hint { display: flex; }
+    .process-drop-hint { display: none; position: absolute; inset: 0; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(17,16,9,0.7); pointer-events: none; }
+    .process-drop-hint span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.6; }
+    body.dev-mode .process-image.has-image .process-drop-hint { display: none; }
+    .dev-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(10,10,8,0.96); align-items: center; justify-content: center; padding: 2rem; }
+    .dev-modal.open { display: flex; }
+    .dev-modal-box { background: var(--bg-raised); border: 1px solid var(--border-md); max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; }
+    .dev-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .dev-modal-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--copper); }
+    .dev-modal-close { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; background: none; border: 1px solid var(--border-md); color: var(--white-dim); padding: 0.3rem 0.8rem; cursor: pointer; transition: all 0.2s; }
+    .dev-modal-close:hover { border-color: var(--white); color: var(--white); }
+    .dev-code { padding: 1.25rem 1.5rem; font-family: var(--mono); font-size: 0.7rem; line-height: 1.7; color: #c8bfaf; white-space: pre; overflow-x: auto; background: var(--bg-card); border-bottom: 1px solid var(--border); }
+    .dev-modal-footer { padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+    .dev-modal-hint { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.4; }
+    .dev-copy-btn { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.25rem; background: var(--copper); color: var(--bg); border: none; cursor: pointer; transition: background 0.2s; }
+    .dev-copy-btn:hover { background: var(--copper-lt); }
+    .dev-copy-btn.copied { background: #4caf50; }
+  </style>
+</head>
+<body>
 
     /* ══════════════════════════════════════════
        DEV MODE STYLES — invisible to visitors
@@ -290,9 +349,12 @@
   </section>
 
   <!-- PROJECT NAV -->
-  <nav class="project-nav">
+  <div class="project-nav">
+    <a href="master-chief-helmet-replica.html" class="project-nav-link">← Master Chief Helmet</a>
     <a href="../index.html#props" class="project-nav-center">All Props</a>
-  </nav>
+    <!-- UPDATE: Change href to next project page -->
+    <a href="slimer.html" class="project-nav-link">Next Project →</a>
+  </div>
 
   <!-- FOOTER -->
   <footer>

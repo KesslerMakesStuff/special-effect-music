@@ -477,7 +477,7 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.4rem;
       transition: color 0.2s;
     }
 
@@ -549,6 +549,54 @@
       .gallery-grid { grid-template-columns: 1fr; }
       .page-meta { flex-direction: column; gap: 1rem; }
     }
+
+    /* ══════════════════════════════════════
+       DEV MODE — Ctrl+Shift+D to activate
+    ══════════════════════════════════════ */
+    .dev-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800; background: #0a0900; border-top: 2px solid var(--copper); padding: 0.75rem 2rem; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    body.dev-mode .dev-bar { display: flex; }
+    .dev-bar-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); display: flex; align-items: center; gap: 0.6rem; }
+    .dev-dot { width: 6px; height: 6px; background: var(--copper); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .dev-actions { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+    .dev-btn { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.45rem 1.1rem; cursor: pointer; border: none; transition: all 0.2s; }
+    .dev-btn-primary { background: var(--copper); color: var(--bg); }
+    .dev-btn-primary:hover { background: var(--copper-lt); }
+    .dev-btn-secondary { background: transparent; color: var(--white-dim); border: 1px solid var(--border-md); }
+    .dev-btn-secondary:hover { border-color: var(--white); color: var(--white); }
+    .dev-hint { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.35; }
+    body.dev-mode .gallery-item { cursor: default; }
+    body.dev-mode .gallery-item.drop-zone { border: 1px dashed var(--copper-dim); cursor: pointer; position: relative; }
+    body.dev-mode .gallery-item.drop-zone.drag-over { border-color: var(--copper); background: #1e1c12; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; pointer-events: none; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; }
+    body.dev-mode .gallery-item.drop-zone .drop-hint .drop-icon { font-size: 1.4rem; opacity: 0.3; }
+    body.dev-mode .gallery-item.has-image .drop-hint { display: none; }
+    body.dev-mode .add-slot-wrap { display: flex; }
+    .add-slot-wrap { display: none; }
+    .add-slot { aspect-ratio: 4/3; background: transparent; border: 1px dashed var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s; width: 100%; }
+    .add-slot:hover { border-color: var(--copper-dim); }
+    .add-slot span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.35; }
+    .add-slot-icon { font-size: 1.2rem; opacity: 0.25; }
+    body.dev-mode .process-image { cursor: pointer; }
+    body.dev-mode .process-image:hover { border-color: var(--copper-dim); }
+    body.dev-mode .process-image .process-drop-hint { display: flex; }
+    .process-drop-hint { display: none; position: absolute; inset: 0; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(17,16,9,0.7); pointer-events: none; }
+    .process-drop-hint span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.6; }
+    body.dev-mode .process-image.has-image .process-drop-hint { display: none; }
+    .dev-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(10,10,8,0.96); align-items: center; justify-content: center; padding: 2rem; }
+    .dev-modal.open { display: flex; }
+    .dev-modal-box { background: var(--bg-raised); border: 1px solid var(--border-md); max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; }
+    .dev-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .dev-modal-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--copper); }
+    .dev-modal-close { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; background: none; border: 1px solid var(--border-md); color: var(--white-dim); padding: 0.3rem 0.8rem; cursor: pointer; transition: all 0.2s; }
+    .dev-modal-close:hover { border-color: var(--white); color: var(--white); }
+    .dev-code { padding: 1.25rem 1.5rem; font-family: var(--mono); font-size: 0.7rem; line-height: 1.7; color: #c8bfaf; white-space: pre; overflow-x: auto; background: var(--bg-card); border-bottom: 1px solid var(--border); }
+    .dev-modal-footer { padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+    .dev-modal-hint { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.4; }
+    .dev-copy-btn { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.25rem; background: var(--copper); color: var(--bg); border: none; cursor: pointer; transition: background 0.2s; }
+    .dev-copy-btn:hover { background: var(--copper-lt); }
+    .dev-copy-btn.copied { background: #4caf50; }
   </style>
 </head>
 <body>
@@ -595,7 +643,7 @@
       <div>
         <!-- UPDATE: Replace placeholder with your process photo -->
         <!-- <img src="../images/project-name-process.jpg" alt="Working on project title" style="width:100%;height:100%;object-fit:cover;display:block;" /> -->
-        <div class="process-image">
+        <div class="process-image" id="process-image-wrap">
           <img src="../images/slimer/slimer.jpg" alt="Slimer - Day" />
           <img src="../images/slimer/slimer-lit-up.jpg" alt="Slimer - Night" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.4s ease;" />
         </div>
@@ -606,7 +654,7 @@
         <!-- UPDATE: Change the heading and description -->
         <h2 class="process-heading">How this piece came together</h2>
         <p class="process-body">
-          Who doesn't love Ghostbusters? I really wanted to make a few props from the movies and caught the bug when I found a model for the Ecto-1. .
+          Who doesn't love Ghostbusters? I really wanted to make a few props from the movies and caught the bug when I found a model for the Ecto-1.
         </p>
         <p class="process-body">
           I downloaded the 3D model from <a href="https://www.thingiverse.com/thing:272978">MustangDave</a> on Thingiverse and printed Slimer out of Simer green PLA+.
@@ -634,7 +682,7 @@
   <section class="gallery">
     <p class="label">Finished Piece</p>
     <h2 class="gallery-heading">The Process</h2>
-    <div class="gallery-grid">
+    <div class="gallery-grid" id="gallery-grid">
       <div class="gallery-item" data-src="">
         <img src="../images/slimer/slimer-printing.jpg" alt="3D Printed Body" />
       </div>
@@ -659,17 +707,22 @@
       <div class="gallery-item" data-src="">
         <img src="../images/slimer/slimer-lit-up.jpg" alt="Wall display 2" />
       </div>
+      <div class="add-slot-wrap">
+        <div class="add-slot" id="add-slot">
+          <div class="add-slot-icon">＋</div>
+          <span>Add image</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PROJECT NAV -->
-  <nav class="project-nav">
-    <!-- UPDATE: Change href to previous project page -->
-    <!-- <a href="#" class="project-nav-link">← Previous Project</a> -->
+  <div class="project-nav">
+    <a href="sandworm.html" class="project-nav-link">← Sandworm</a>
     <a href="../index.html#props" class="project-nav-center">All Props</a>
     <!-- UPDATE: Change href to next project page -->
-    <!-- <a href="#" class="project-nav-link">Next Project →</a> -->
-  </nav>
+    <a href="betelgeuse-sign.html" class="project-nav-link">Next Project →</a>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -688,29 +741,210 @@
     <img src="" alt="" id="lightbox-img" />
   </div>
 
-  <script>
-    // Lightbox
-    const lightbox     = document.getElementById('lightbox');
-    const lightboxImg  = document.getElementById('lightbox-img');
-    const lightboxClose = document.getElementById('lightbox-close');
+ <!-- DEV MODE BAR -->
+  <div class="dev-bar">
+    <div class="dev-bar-label">
+      <div class="dev-dot"></div>
+      Dev Mode — Ctrl+Shift+D to exit
+    </div>
+    <div class="dev-actions">
+      <span class="dev-hint">Drag images onto gallery slots or click + to add</span>
+      <button class="dev-btn dev-btn-primary" id="dev-copy-btn">Copy Gallery Code</button>
+      <button class="dev-btn dev-btn-secondary" id="dev-exit-btn">Exit Dev Mode</button>
+    </div>
+  </div>
 
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('open');
-        document.body.style.overflow = 'hidden';
+  <!-- DEV CODE MODAL -->
+  <div class="dev-modal" id="dev-modal">
+    <div class="dev-modal-box">
+      <div class="dev-modal-header">
+        <span class="dev-modal-title">Gallery HTML — copy and paste into your page</span>
+        <button class="dev-modal-close" id="dev-modal-close">Close ✕</button>
+      </div>
+      <div class="dev-code" id="dev-code-output"></div>
+      <div class="dev-modal-footer">
+        <span class="dev-modal-hint">Replace the contents of .gallery-grid with this code, then move your image files into images/krampus/</span>
+        <button class="dev-copy-btn" id="dev-modal-copy">Copy Code</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const body        = document.body;
+    const lightbox    = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const galleryGrid = document.getElementById('gallery-grid');
+    const devModal    = document.getElementById('dev-modal');
+    const FOLDER      = 'slimer'; // change this per project
+
+    let devMode = false;
+
+    /* ── LIGHTBOX ── */
+    function openLightbox(src, alt) {
+      lightboxImg.src = src; lightboxImg.alt = alt;
+      lightbox.classList.add('open');
+      body.style.overflow = 'hidden';
+    }
+    function closeLightbox() { lightbox.classList.remove('open'); body.style.overflow = ''; }
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); closeModal(); } });
+
+    function bindLightbox() {
+      galleryGrid.querySelectorAll('.gallery-item img').forEach(img => {
+        img.onclick = () => { if (!devMode) openLightbox(img.src, img.alt); };
       });
+    }
+    bindLightbox();
+
+    /* ── DEV MODE ── */
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && e.shiftKey && e.key === 'D') { e.preventDefault(); toggleDev(); }
+    });
+    document.getElementById('dev-exit-btn').addEventListener('click', toggleDev);
+
+    function toggleDev() {
+      devMode = !devMode;
+      body.classList.toggle('dev-mode', devMode);
+      if (devMode) { enableDropZones(); enableProcessDrop(); }
+      else { disableDropZones(); disableProcessDrop(); }
+    }
+
+    /* ── GALLERY DROP ZONES ── */
+    function enableDropZones() {
+      galleryGrid.querySelectorAll('.gallery-item').forEach(item => {
+        item.classList.add('drop-zone');
+        if (!item.querySelector('.drop-hint') && !item.classList.contains('has-image')) {
+          const hint = document.createElement('div');
+          hint.className = 'drop-hint';
+          hint.innerHTML = '<div class="drop-icon">📷</div><span>Drop image here</span>';
+          item.appendChild(hint);
+        }
+        item.addEventListener('dragover', onDragOver);
+        item.addEventListener('dragleave', onDragLeave);
+        item.addEventListener('drop', onDrop);
+        item.addEventListener('click', onSlotClick);
+      });
+    }
+
+    function disableDropZones() {
+      galleryGrid.querySelectorAll('.gallery-item').forEach(item => {
+        item.classList.remove('drop-zone', 'drag-over');
+        item.removeEventListener('dragover', onDragOver);
+        item.removeEventListener('dragleave', onDragLeave);
+        item.removeEventListener('drop', onDrop);
+        item.removeEventListener('click', onSlotClick);
+      });
+      bindLightbox();
+    }
+
+    function onDragOver(e) { e.preventDefault(); this.classList.add('drag-over'); }
+    function onDragLeave() { this.classList.remove('drag-over'); }
+    function onDrop(e) {
+      e.preventDefault(); this.classList.remove('drag-over');
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith('image/')) loadImageIntoSlot(this, file);
+    }
+    function onSlotClick() {
+      const input = document.createElement('input');
+      input.type = 'file'; input.accept = 'image/*';
+      input.onchange = () => { if (input.files[0]) loadImageIntoSlot(this, input.files[0]); };
+      input.click();
+    }
+    function loadImageIntoSlot(slot, file) {
+      const url = URL.createObjectURL(file);
+      let img = slot.querySelector('img');
+      const placeholder = slot.querySelector('.gallery-placeholder');
+      if (placeholder) placeholder.remove();
+      if (!img) { img = document.createElement('img'); slot.appendChild(img); }
+      img.src = url;
+      img.alt = file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+      slot.dataset.filename = file.name;
+      slot.classList.add('has-image');
+      const hint = slot.querySelector('.drop-hint');
+      if (hint) hint.style.display = 'none';
+    }
+
+    /* ── ADD SLOT ── */
+    document.getElementById('add-slot').addEventListener('click', () => {
+      const newItem = document.createElement('div');
+      newItem.className = 'gallery-item drop-zone';
+      newItem.dataset.filename = '';
+      newItem.innerHTML = '<div class="drop-hint"><div class="drop-icon">📷</div><span>Drop image here</span></div>';
+      galleryGrid.insertBefore(newItem, document.querySelector('.add-slot-wrap'));
+      newItem.addEventListener('dragover', onDragOver);
+      newItem.addEventListener('dragleave', onDragLeave);
+      newItem.addEventListener('drop', onDrop);
+      newItem.addEventListener('click', onSlotClick);
     });
 
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      document.body.style.overflow = '';
+    /* ── PROCESS IMAGE DROP ── */
+    const processWrap = document.getElementById('process-image-wrap');
+    function enableProcessDrop() {
+      processWrap.addEventListener('click', onProcessClick);
+      processWrap.addEventListener('dragover', onProcessDragOver);
+      processWrap.addEventListener('dragleave', onProcessDragLeave);
+      processWrap.addEventListener('drop', onProcessDrop);
     }
+    function disableProcessDrop() {
+      processWrap.removeEventListener('click', onProcessClick);
+      processWrap.removeEventListener('dragover', onProcessDragOver);
+      processWrap.removeEventListener('dragleave', onProcessDragLeave);
+      processWrap.removeEventListener('drop', onProcessDrop);
+    }
+    function onProcessClick() {
+      const input = document.createElement('input');
+      input.type = 'file'; input.accept = 'image/*';
+      input.onchange = () => { if (input.files[0]) loadProcessImage(input.files[0]); };
+      input.click();
+    }
+    function onProcessDragOver(e) { e.preventDefault(); processWrap.style.borderColor = 'var(--copper)'; }
+    function onProcessDragLeave() { processWrap.style.borderColor = ''; }
+    function onProcessDrop(e) {
+      e.preventDefault(); processWrap.style.borderColor = '';
+      const file = e.dataTransfer.files[0];
+      if (file && file.type.startsWith('image/')) loadProcessImage(file);
+    }
+    function loadProcessImage(file) {
+      const url = URL.createObjectURL(file);
+      const placeholder = processWrap.querySelector('.process-image-placeholder');
+      if (placeholder) placeholder.remove();
+      let img = processWrap.querySelector('img');
+      if (!img) { img = document.createElement('img'); processWrap.insertBefore(img, processWrap.firstChild); }
+      img.src = url; img.alt = 'Process photo';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+      processWrap.classList.add('has-image');
+      processWrap.dataset.filename = file.name;
+    }
+
+    /* ── GENERATE CODE ── */
+    document.getElementById('dev-copy-btn').addEventListener('click', () => {
+      const items = galleryGrid.querySelectorAll('.gallery-item:not(.add-slot-wrap)');
+      const lines = Array.from(items).map(item => {
+        const img = item.querySelector('img');
+        const filename = item.dataset.filename || 'image.jpg';
+        const alt = img ? img.alt : filename.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+        return `      <div class="gallery-item" data-filename="${filename}">\n        <img src="../images/${FOLDER}/${filename}" alt="${alt}" />\n      </div>`;
+      }).join('\n');
+
+      const processFilename = processWrap.dataset.filename || 'process.jpg';
+      const processCode = `<img src="../images/${FOLDER}/${processFilename}" alt="Working on the build" style="width:100%;height:100%;object-fit:cover;display:block;" />`;
+
+      document.getElementById('dev-code-output').textContent =
+        `<!-- GALLERY CODE -->\n${lines}\n\n<!-- PROCESS IMAGE CODE -->\n${processCode}`;
+      devModal.classList.add('open');
+    });
+
+    function closeModal() { devModal.classList.remove('open'); }
+    document.getElementById('dev-modal-close').addEventListener('click', closeModal);
+    devModal.addEventListener('click', e => { if (e.target === devModal) closeModal(); });
+
+    document.getElementById('dev-modal-copy').addEventListener('click', function() {
+      navigator.clipboard.writeText(document.getElementById('dev-code-output').textContent).then(() => {
+        this.textContent = 'Copied ✓'; this.classList.add('copied');
+        setTimeout(() => { this.textContent = 'Copy Code'; this.classList.remove('copied'); }, 2000);
+      });
+    });
   </script>
 </body>
 </html>

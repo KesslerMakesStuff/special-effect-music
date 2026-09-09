@@ -27,15 +27,15 @@
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 3.5rem; background: rgba(17,16,9,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Teko', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; }
     .nav-logo span { color: var(--copper); }
-    .nav-back { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .nav-back { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
     .nav-back:hover { color: var(--copper); }
-    .nav-hire { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.55rem 1.4rem; border: 1px solid var(--copper-dim); color: var(--copper); text-decoration: none; transition: all 0.2s; }
+    .nav-hire { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.55rem 1.4rem; border: 1px solid var(--copper-dim); color: var(--copper); text-decoration: none; transition: all 0.2s; }
     .nav-hire:hover { background: var(--copper); color: var(--bg); }
 
     /* ── PAGE HEADER ── */
     .page-header { padding: 10rem 3.5rem 4rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
     .page-header-bg { position: absolute; top: 50%; right: -2rem; transform: translateY(-50%); font-family: 'Teko', sans-serif; font-size: clamp(6rem, 15vw, 13rem); font-weight: 700; color: transparent; -webkit-text-stroke: 1px #ffffff05; pointer-events: none; user-select: none; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
-    .breadcrumb { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
+    .breadcrumb { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white-dim); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
     .breadcrumb a { color: var(--copper); text-decoration: none; transition: opacity 0.2s; }
     .breadcrumb a:hover { opacity: 0.7; }
     .breadcrumb-sep { opacity: 0.3; }
@@ -48,15 +48,15 @@
     /* ── PROCESS ── */
     .process { padding: 5rem 3.5rem; border-bottom: 1px solid var(--border); background: var(--bg-raised); }
     .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .process-image { position: relative; aspect-ratio: 2/3; background: var(--bg-card); border: 1px solid var(--border-md); overflow: hidden; }
+    .process-image { position: relative; aspect-ratio: 4/4; background: var(--bg-card); border: 1px solid var(--border-md); overflow: hidden; }
     .process-image::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--copper); }
     .process-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .process-image-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; }
     .process-image-placeholder svg { width: 32px; height: 32px; stroke: var(--border-md); fill: none; stroke-width: 1; }
-    .process-image-placeholder span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
-    .image-caption { margin-top: 0.75rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.5; }
+    .process-image-placeholder span { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
+    .image-caption { margin-top: 0.75rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.5; }
     .process-content { padding-top: 0.5rem; }
-    .label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; }
+    .label { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; }
     .label::before { content: ''; width: 20px; height: 1px; background: var(--copper-dim); flex-shrink: 0; }
     .process-heading { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2; color: var(--white); margin-bottom: 1.25rem; }
     .process-body { font-size: 1rem; color: var(--white-dim); line-height: 1.85; margin-bottom: 1.25rem; }
@@ -64,9 +64,9 @@
     .process-body a { color: var(--copper-lt); text-decoration: none; border-bottom: 1px solid var(--copper-dim); transition: border-color 0.2s; }
     .process-body a:hover { border-color: var(--copper-lt); }
     .techniques { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-    .techniques-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); margin-bottom: 1rem; }
+    .techniques-label { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper); margin-bottom: 1rem; }
     .techniques-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .technique-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 0.85rem; border: 1px solid var(--border-md); color: var(--white-dim); transition: all 0.2s; }
+    .technique-tag { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 0.85rem; border: 1px solid var(--border-md); color: var(--white-dim); transition: all 0.2s; }
     .technique-tag:hover { border-color: var(--copper-dim); color: var(--copper-lt); }
 
     /* ── GALLERY ── */
@@ -79,27 +79,27 @@
     .gallery-item:hover img { transform: scale(1.04); }
     .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; }
     .gallery-placeholder svg { width: 28px; height: 28px; stroke: var(--border-md); fill: none; stroke-width: 1; }
-    .gallery-placeholder span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
+    .gallery-placeholder span { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.15em; color: var(--border-md); text-transform: uppercase; }
 
     /* ── LIGHTBOX ── */
     .lightbox { position: fixed; inset: 0; background: rgba(10,10,8,0.96); z-index: 900; display: none; align-items: center; justify-content: center; padding: 2rem; }
     .lightbox.open { display: flex; }
     .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; display: block; }
-    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); background: none; border: 1px solid var(--border-md); padding: 0.4rem 1rem; cursor: pointer; transition: all 0.2s; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-dim); background: none; border: 1px solid var(--border-md); padding: 0.4rem 1rem; cursor: pointer; transition: all 0.2s; }
     .lightbox-close:hover { color: var(--white); border-color: var(--white); }
 
     /* ── PROJECT NAV ── */
     .project-nav { padding: 3rem 3.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 1rem; }
-    .project-nav-link { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; transition: color 0.2s; }
+    .project-nav-link { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
     .project-nav-link:hover { color: var(--copper); }
-    .project-nav-center { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; text-decoration: none; transition: opacity 0.2s; }
+    .project-nav-center { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; text-decoration: none; transition: opacity 0.2s; }
     .project-nav-center:hover { opacity: 1; color: var(--copper); }
 
     /* ── FOOTER ── */
     footer { padding: 2rem 3.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-copy { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.5; }
+    .footer-copy { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.5; }
     .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; opacity: 0.5; transition: opacity 0.2s, color 0.2s; }
+    .footer-links a { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-dim); text-decoration: none; opacity: 0.5; transition: opacity 0.2s, color 0.2s; }
     .footer-links a:hover { opacity: 1; color: var(--copper); }
 
     /* ── RESPONSIVE ── */
@@ -133,7 +133,6 @@
     .dev-btn-secondary { background: transparent; color: var(--white-dim); border: 1px solid var(--border-md); }
     .dev-btn-secondary:hover { border-color: var(--white); color: var(--white); }
     .dev-hint { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; color: var(--white-dim); opacity: 0.35; }
-
     body.dev-mode .gallery-item { cursor: default; }
     body.dev-mode .gallery-item.drop-zone { border: 1px dashed var(--copper-dim); cursor: pointer; position: relative; }
     body.dev-mode .gallery-item.drop-zone.drag-over { border-color: var(--copper); background: #1e1c12; }
@@ -141,22 +140,18 @@
     body.dev-mode .gallery-item.drop-zone .drop-hint span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.4; }
     body.dev-mode .gallery-item.drop-zone .drop-hint .drop-icon { font-size: 1.4rem; opacity: 0.3; }
     body.dev-mode .gallery-item.has-image .drop-hint { display: none; }
-
     body.dev-mode .add-slot-wrap { display: flex; }
     .add-slot-wrap { display: none; }
     .add-slot { aspect-ratio: 4/3; background: transparent; border: 1px dashed var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; cursor: pointer; transition: all 0.2s; width: 100%; }
     .add-slot:hover { border-color: var(--copper-dim); }
     .add-slot span { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white-dim); opacity: 0.35; }
     .add-slot-icon { font-size: 1.2rem; opacity: 0.25; }
-
-    /* Process image drop zone in dev mode */
     body.dev-mode .process-image { cursor: pointer; }
     body.dev-mode .process-image:hover { border-color: var(--copper-dim); }
     body.dev-mode .process-image .process-drop-hint { display: flex; }
     .process-drop-hint { display: none; position: absolute; inset: 0; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(17,16,9,0.7); pointer-events: none; }
     .process-drop-hint span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-dim); opacity: 0.6; }
     body.dev-mode .process-image.has-image .process-drop-hint { display: none; }
-
     .dev-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(10,10,8,0.96); align-items: center; justify-content: center; padding: 2rem; }
     .dev-modal.open { display: flex; }
     .dev-modal-box { background: var(--bg-raised); border: 1px solid var(--border-md); max-width: 700px; width: 100%; max-height: 80vh; overflow-y: auto; }
@@ -214,7 +209,7 @@
       <div>
         <div class="process-image" id="process-image-wrap">
           <!-- Drop an image here in dev mode, or replace with: -->
-          <img src="..\images\beetlejuice-sign\beetlejuice-sign.jpg" alt="Finished BETELGEUSE Sign" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <!-- <img src="..\images\beetlejuice-sign\beetlejuice-sign.jpg" alt="Finished BETELGEUSE Sign" style="width:100%;height:100%;object-fit:cover;display:block;" /> -->
           <!-- <div class="process-image-placeholder">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="10" r="3"/><path d="M6 21v-1a6 6 0 0 1 12 0v1"/></svg>
             <span>process_photo.jpg</span>
@@ -223,33 +218,42 @@
             <div style="font-size:1.4rem;opacity:0.4;">📷</div>
             <span>Click or drop to set process photo</span>
           </div> -->
+          <video controls preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;">
+            <source src="../images/beetlejuice-sign/krampus-sign-working.mp4" type="video/mp4" />
+          </video>
         </div>
-        <p class="image-caption" id="process-caption">Finished Sculpt</p>
+        <p class="image-caption" id="process-caption">Finished Sign</p>
       </div>
       <div class="process-content">
         <p class="label">Behind the Build</p>
         <h2 class="process-heading">How this piece came together</h2>
         <p class="process-body">
-          In 2015 I saw the movie Krampus and fell in love with the creature suit and sculpt that WETA made for the character. I've always loved WETA Workshop's work, and it inspired me to try my hand at remaking the Krampus face sculpt as close as I could to the original — with the added goal of sculpting it on my own face bust and making it wearable as a mask.
+          Like a lot of people, one of my favorite halloween movies is Beetlejuice. Every since I saw the movie, I wanted the sign in the graveyard for my yard haunt. It had been an idea in my head for a very long time. 
         </p>
         <p class="process-body">
-          For the clay I used Monster Makers medium, drawing from a mix of Xiem, Michael's, and my own handmade sculpting tools. One thing that really sped up my workflow was 3D printing custom skin texture rollers — I could get a solid base texture down quickly using impressed texturing, then iterate and refine, adding wrinkles, pores, and surface detail through additive modeling and carving. Blending and smoothing kept everything cohesive as the piece came together.
+          Getting the scale right was the first challenge. I wanted the sign as close to screen-accurate as possible while still being able to store it in my house. The body is built from wood, base coated with spray paint, and weathered with acrylics. The BETELGEUSE lettering was hand painted on plexiglass using a stencil as a guide, then refined entirely by hand. For the bulbs I sourced colored incandescent lights that matched the film as closely as I could find. The light sequencing pattern is driven by a Raspberry Pi and a 12-channel relay module, and the sign itself is backlit by a custom LED panel I built.
         </p>
         <p class="process-body">
-          This was a really fun sculpt to work on.
+          For the bulbs I sourced colored incandescent lights that matched the film as closely as I could find. I also 3D modeled and printed lightbulb holder inserts so that the bulbs fit within the wood frame. The light sequencing pattern is driven by a Raspberry Pi and a 12-channel relay module, and the sign itself is backlit by a custom LED panel I built.
         </p>
         <div class="techniques">
           <p class="techniques-label">Techniques Used</p>
           <div class="techniques-list">
-            <span class="technique-tag">Clay Sculpting</span>
-            <span class="technique-tag">Carving</span>
-            <span class="technique-tag">Additive Modeling</span>
-            <span class="technique-tag">Blending & Smoothing</span>
-            <span class="technique-tag">Skin Texture Rolling</span>
-            <span class="technique-tag">3D Printed Tooling</span>
-            <span class="technique-tag">Face Cast Armature</span>
+            <span class="technique-tag">Woodworking</span>
+            <span class="technique-tag">Wiring</span>
+            <span class="technique-tag">Python Code</span>
+            <span class="technique-tag">Painting</span>
+            <span class="technique-tag">Hand Lettering</span>
+            <span class="technique-tag">3D Printing</span>
+            <span class="technique-tag">3D Modeling</span>
           </div>
         </div>
+        <!-- <div class="project-video">
+          <video controls preload="metadata">
+            <source src="../images/beetlejuice-sign/krampus-sign-working.mp4" type="video/mp4" />
+            Your browser does not support video playback.
+          </video>
+        </div> -->
       </div>
     </div>
   </section>
@@ -265,39 +269,51 @@
     <div class="gallery-grid" id="gallery-grid">
       <!-- Replace placeholders with real images once you have them -->
       <!-- Or use Ctrl+Shift+D to drop images in directly -->
-       <div class="gallery-item" data-filename="krampus-bottom-right.jpg">
-        <img src="../images/krampus/krampus-bottom-right.jpg" alt="krampus bottom right" />
+      <div class="gallery-item" data-filename="PXL_20240907_182623773 (1).jpg">
+        <img src="../images/beetlejuice-sign/PXL_20240907_182623773 (1).jpg" alt="PXL 20240907 182623773 (1)" />
       </div>
-      <div class="gallery-item" data-filename="krampus-final-left.jpg">
-        <img src="../images/krampus/krampus-final-left.jpg" alt="krampus final left" />
+      <div class="gallery-item" data-filename="PXL_20240908_205005284 (1).jpg">
+        <img src="../images/beetlejuice-sign/PXL_20240908_205005284 (1).jpg" alt="PXL 20240908 205005284 (1)" />
       </div>
-      <div class="gallery-item" data-filename="krampus-full-left.jpg">
-        <img src="../images/krampus/krampus-full-left.jpg" alt="krampus full left" />
+      <div class="gallery-item" data-filename="PXL_20240909_225942576.jpg">
+        <img src="../images/beetlejuice-sign/PXL_20240909_225942576.jpg" alt="PXL 20240909 225942576" />
       </div>
-      <div class="gallery-item" data-filename="krampus-bottom-left.jpg">
-        <img src="../images/krampus/krampus-bottom-left.jpg" alt="krampus bottom left" />
+      <div class="gallery-item" data-filename="PXL_20240911_214219309 (1).jpg">
+        <img src="../images/beetlejuice-sign/PXL_20240911_214219309 (1).jpg" alt="PXL 20240911 214219309 (1)" />
       </div>
-      <div class="gallery-item" data-filename="krampus-top-right.jpg">
-        <img src="../images/krampus/krampus-top-right.jpg" alt="krampus top right" />
+      <div class="gallery-item" data-filename="PXL_20240911_231146816.jpg">
+        <img src="../images/beetlejuice-sign/PXL_20240911_231146816.jpg" alt="PXL 20240911 231146816" />
       </div>
-      <div class="gallery-item" data-filename="krampus-upclose-right.jpg">
-        <img src="../images/krampus/krampus-upclose-right.jpg" alt="krampus upclose right" />
+      <div class="gallery-item" data-filename="PXL_20240919_010816519 (2).jpg">
+        <img src="../images/beetlejuice-sign/PXL_20240919_010816519 (2).jpg" alt="PXL 20240919 010816519 (2)" />
       </div>
-      <div class="gallery-item" data-filename="krampus-upclose-right-bottom.jpg">
-        <img src="../images/krampus/krampus-upclose-right-bottom.jpg" alt="krampus upclose right bottom" />
+      <div class="gallery-item" data-filename="PXL_20240908_164955687.PORTRAIT.ORIGINAL (1).jpg">
+        <img src="../images/beetlejuice-sign/PXL_20240908_164955687.PORTRAIT.ORIGINAL (1).jpg" alt="PXL 20240908 164955687.PORTRAIT.ORIGINAL (1)" />
+      </div>
+      <div class="gallery-item" data-filename="PXL_20251020_225905028.jpg">
+        <img src="../images/beetlejuice-sign/PXL_20251020_225905028.jpg" alt="PXL 20251020 225905028" />
+      </div>
+      <div class="gallery-item" data-filename="PXL_20240925_223649045.MP.jpg">
+        <img src="../images/beetlejuice-sign/PXL_20240925_223649045.MP.jpg" alt="PXL 20240925 223649045.MP" />
       </div>
       <!-- <div class="gallery-item" data-filename="PXL_20260624_204232579.jpg">
-        <img src="../images/krampus/PXL_20260624_204232579.jpg" alt="PXL 20260624 204232579" />
+        <img src="../images/beetlejuice-sign/PXL_20260624_204232579.jpg" alt="PXL 20260624 204232579" />
       </div> -->
+      <div class="add-slot-wrap">
+        <div class="add-slot" id="add-slot">
+          <div class="add-slot-icon">＋</div>
+          <span>Add image</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PROJECT NAV -->
-  <nav class="project-nav">
-    <a href="sandworm.html" class="project-nav-link">← Sandworm (Beetlejuice)</a>
+  <div class="project-nav">
+    <a href="slimer.html" class="project-nav-link">← Slimer</a>
     <a href="../index.html#props" class="project-nav-center">All Props</a>
-    <a href="#" class="project-nav-link">Next Project →</a>
-  </nav>
+    <a href="krampus.html" class="project-nav-link">Next Project →</a>
+  </div>
 
   <!-- FOOTER -->
   <footer>
