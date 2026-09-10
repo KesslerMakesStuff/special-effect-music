@@ -918,6 +918,19 @@
       .props-grid { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr 1fr; }
     }
+
+    @media (max-width: 600px) {
+      .track {
+        grid-template-columns: 2rem auto 1fr;
+        flex-wrap: wrap;
+      }
+      .track-tag {
+        display: none;
+      }
+      .track-meta {
+        white-space: normal;
+      }
+    }
   </style>
 </head>
 <body>
